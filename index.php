@@ -97,7 +97,7 @@ $details = include('db_connect.php');
         <h2 class="title">Featured Teas</h2>
         <div class="row">
             <div class="col-4">
-                <img src="webimages/local-images/tea1.jpg">
+                <img src="assets/img/pic1.jpg">
                 <h4>Tea Sample 1</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -109,7 +109,7 @@ $details = include('db_connect.php');
                 <p>$12.00</p>
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea8.jpg">
+                <img src="assets/img/pic2.jpg">
                 <h4>Tea Sample 8</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -121,7 +121,7 @@ $details = include('db_connect.php');
                 <p>$17.00</p>
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea9.jpg">
+                <img src="assets/img/pic3.jpg">
                 <h4>Tea Sample 9</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -133,7 +133,7 @@ $details = include('db_connect.php');
                 <p>$24.00</p>
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea11.jpg">
+                <img src="assets/img/van1.jpg">
                 <h4>Tea Sample 11</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -145,10 +145,12 @@ $details = include('db_connect.php');
                 <p>$7.00</p>
             </div>
         </div>
-        <h2 class="title">Other Teas</h2>
+
+
+        <h2 class="title">Our Gallery</h2>
         <div class="row">
             <div class="col-4">
-                <img src="webimages/local-images/tea2.jpg">
+                <img src="assets/img/van2.jpg">
                 <h4>Tea Sample 2</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -160,7 +162,7 @@ $details = include('db_connect.php');
                 <p>$10.00</p>
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea3.jpg">
+                <img src="assets/img/van3.jpg">
                 <h4>Tea Sample 3</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -173,7 +175,7 @@ $details = include('db_connect.php');
             </div>
 
             <div class="col-4">
-                <img src="webimages/local-images/tea4.jpg">
+                <img src="assets/img/van4.jpg">
                 <h4>Tea Sample 4</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -185,7 +187,7 @@ $details = include('db_connect.php');
                 <p>$4.40</p>
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea5.jpg">
+                <img src="assets/img/pic5.jpg">
                 <h4>Tea Sample 5</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -197,52 +199,52 @@ $details = include('db_connect.php');
                 <p>$5.50</p>
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea6.jpg">
-                <h4>Tea Sample 6</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$14.50</p>
+                <img src="assets/img/pic10.jpeg">
+<!--                <h4>Tea Sample 6</h4>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-half-o"></i>-->
+<!--                </div>-->
+<!--                <p>$14.50</p>-->
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea7.jpg">
-                <h4>Tea Sample 7</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$10.00</p>
+                <img src="assets/img/pic6.jpg">
+<!--                <h4>Tea Sample 7</h4>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$10.00</p>-->
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea10.jpg">
-                <h4>Tea Sample 10</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$19.00</p>
+                <img src="assets/img/pic7.jpg">
+<!--                <h4>Tea Sample 10</h4>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-half-o"></i>-->
+<!--                </div>-->
+<!--                <p>$19.00</p>-->
             </div>
             <div class="col-4">
-                <img src="webimages/local-images/tea12.jpg">
-                <h4>Tea Sample 12</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$3.90</p>
+                <img src="assets/img/pic8.jpg">
+<!--                <h4>Tea Sample 12</h4>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-half-o"></i>-->
+<!--                </div>-->
+<!--                <p>$3.90</p>-->
             </div>
         </div>
     </div>

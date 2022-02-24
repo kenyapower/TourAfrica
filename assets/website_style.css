@@ -85,3 +85,36 @@ body
     color:white;
     border:1px solid white;
 }
+
+#video {
+    position: relative;
+    margin-top:100px;
+    width: auto;
+    height:400px;
+    margin-left:5%;
+    padding:50px;
+    box-sizing:border-box;
+    background-color:#084B8A;
+    border-radius:10px;
+    color:white;
+
+}
+
+#videoPlayer{
+    position: absolute;
+    z-index: -1;
+
+}
+
+#videoCaption{
+    position: absolute;
+    z-index: 2147483647;
+    font-size: 80%;
+    line-height: 125%;
+    /*text-align: left;*/
+    color: #c9302c;
+    background-color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    /*font-family: "monospaceSansSerif";*/
+}
