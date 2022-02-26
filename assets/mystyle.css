@@ -15,6 +15,12 @@
 .h-100{
 
 }
+
+.invoice-name{
+    color: #7e8d9f;
+    font-size: 20px;
+}
+
 .gradient-custom {
     /* fallback for old browsers */
     background: #6a11cb;
