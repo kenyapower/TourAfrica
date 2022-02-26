@@ -3,17 +3,16 @@
         height: 100vh !important;
     }
 }
+
 .wrapper{
     background-color: #8fc4b7;
 }
+
 .acc-img{
     height: 100vh !important;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-}
-.h-100{
-
 }
 
 .invoice-name{
@@ -31,3 +30,105 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    /*height: 100%;*/
+}
+
+#index {
+    background-image: url("img/jungle.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron{
+    background-color: #8fc4b7;
+
+}
+
+.jumbotron h1{
+    font-weight: bold;
+}
+
+.p1{
+    color: black;
+
+    font-family: "Franklin Gothic Book";
+    font-size: 200%;
+    font-weight: 900;
+}
+
+.p2{
+    color: black;
+
+    font-family: "Franklin Gothic Book";
+    font-size: 200%;
+    font-weight: 900;
+}
+/*#index {background-color: red;}*/
+#about {
+    background-image: url("img/pic10.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lead{
+    align-content: center;
+    padding-top: 40px;
+}
+
+#contact {
+    background-image: url("img/pic2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#operation {
+    background-image: url("img/pic3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#operation a{
+    text-decoration: none;
+}
+
+#operation p{
+    color: black;
+}
+

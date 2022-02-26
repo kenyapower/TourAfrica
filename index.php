@@ -1,417 +1,289 @@
 <?php
 $details = include('db_connect.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TourAfrica</title>
 
-    <!-- Favicons -->
-    <link href="assets/img/logo.jpeg" rel="icon">
+<!--call header-->
+<?php include 'header.php'; ?>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+<!--index section starts here-->
+<div id="index" class="tabcontent">
+    <main role="main">
 
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">TourAfrica</h1>
+                <p class="p1">TourAfrica is a masterclass in action. we strive to bring the best of pleasure from nature and sceneries all across Africa </p>
+                <p class="p2">We cater for your transportation throughout your trip for as long as your contract is valid. Air, water and land; <br>
+                that is how far we go to make sure you get value for your money</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Try Today »</a></p>
+            </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
+</div>
+<!--index section ends here-->
 
-    <script type="text/javascript">
-        function scrollto(div)
-        {
-            $('html,body').animate(
-                {
-                    scrollTop: $("#"+div).offset().top
-                },'slow');
-        }
-    </script>
-</head>
-<body>
-<div class="header">
+<!--about section starts here-->
+<div id="about" class="tabcontent">
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Transport Issues ? <span class="text-muted">We Got you.</span></h2>
+                    <p class="lead">
+                        We <b style="color: greenyellow"><i>TOURAFRICA</i></b> endeavor to ensure that transport to your travel destination is not an issue, we have a vast
+                        network of vehicles, luxury cars, boats and choppers to help you move around during your trip.
+                        <br>
+                        Try our range of vehicles today, absolute quality and value for your money.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="assets/img/vans.jpg" data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="assets/img/pic7.jpg" data-holder-rendered="true">
+                </div>
+
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Is Diversity your thing. <span class="text-muted">We got You !!!</span></h2>
+                    <p class="lead">
+                        We <b style="color: greenyellow"><i>TOURAFRICA</i></b>, will have you interacting with indigenous communities as they celebrate and perform their community rituals.
+                        <br>
+                        You will get to carry out some of these memorable experiences yourself.
+                    </p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Does History Amuse you ? <span class="text-muted">We are here with the thrill.</span></h2>
+                    <p class="lead">
+                        At <b style="color: greenyellow"><i>TOURAFRICA</i></b>, we value history. We will take you down the chartered and dusty path of history
+                        with visual representation of ancient culture. The pyraminds, the caves and many more of the eroded years, we are here to give you a taste
+                        of what happened.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="assets/img/pic3.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">Taste Indigenous foods.</span></h2>
+                    <p class="lead">
+                        Are Recipes in your bucket list? <b style="color: greenyellow"><i>TOURAFRICA</i></b> will help you tick them by getting you lots of different
+                        foods from communities all about the world.
+                        <br>
+                        Book and pen, buds and saliva, wet mouth and Lens ready for you will try lots of food during your trip.
+                    </p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="assets/img/specials-3.png" data-holder-rendered="true" style="width: 500px; height: 500px;">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+</div>
+<!--about section ends here-->
+
+<!--contact section starts here-->
+<div id="contact" class="tabcontent">
+
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+            a matter of hours to help you.</p>
+
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="contactForm-Handler.php" method="POST">
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="name" name="name" class="form-control">
+                                <label for="name" class="">Your name</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="email" name="email" class="form-control">
+                                <label for="email" class="">Your email</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" id="subject" name="subject" class="form-control">
+                                <label for="subject" class="">Subject</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-12">
+
+                            <div class="md-form">
+                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                <label for="message">Your message</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <p style="color: green">What is your preferred contact method?</p>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" id="radio1" name="cmethod" value="phone" checked>
+                        <label class="form-check-label" for="radio1">Phone</label>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" id="radio2" name="cmethod" value="mail">
+                        <label class="form-check-label" for="radio2">Email</label>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" id="radio3" name="cmethod" value="post">
+                        <label class="form-check-label" for="radio3">Post</label>
+                    </div>
+
+                </form>
+
+                <div class="text-center text-md-left">
+                    <a class="btn btn-primary" onclick="validateForm();">Send</a>
+<!--                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>-->
+                </div>
+                <div class="status"></div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        <p>Nairobi,Kenya</p>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        <p>+254 795 573 597</p>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                        </svg>
+                        <p>tourafrica@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+        </div>
+
+</div>
+<!--contact section ends here-->
+
+<!--operation section starts here-->
+<div id="operation" class="tabcontent">
     <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="assets/img/logo.jpeg" >
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Get An Account</h4>
+                </div>
+                <div class="card-body">
+                    <p>Start earning.<br> Register as a driver today</p>
+                    <a href="account_request.php">
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign up for free </button>
+                    </a>
+                </div>
             </div>
-            <nav>
-                <ul id="menuItems">
-                    <li><a href="/" class="h-button"></a>Home</li>
-                    <li onclick="scrollto('gallery');">About</li>
-                    <li><a href="" class="h-button"></a>Account</li>
-                    <li><a href="" class="h-button"></a>Products</li>
-                    <li><a href="" class="h-button"></a>Contact Us</li>
-                </ul>
-            </nav>
+
+            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Login</h4>
+                </div>
+                <div class="card-body">
+                    <p>Access Your Account</p>
+                    <a href="login.php">
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign In </button>
+                    </a>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Book A Vehicle</h4>
+                </div>
+                <div class="card-body">
+                    <p>Get a vehicle from our fleet.</p>
+                    <a href="car.php">
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book Vehicle</button>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-2">
-                <h1>TourAfrica</h1>
-                <p>Get to experience nature in some of the most serene environments in Africa.
-                    <br> We assure you of true and thrilling adventure, memory creating scenes and perfect backgrounds for your lens
-                </p>
-                <a href="products" class="btn">Explore TourAfrica &#8594;</a>
-            </div>
-            <div class="col-2">
-<!--                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=gTEXJsw62iU" allowfullscreen></iframe>-->
-<!--                <img src="webimages/local-images/kangaita1.jpg">-->
-                </video>
-                <video width="500" height="400" controls>
-                    <source src="assets/kenya.mp4" type=video/mp4>
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
+
     </div>
 </div>
-
-<!--{{----------------------featured teas section------------------}}-->
-<!---->
-<!--<div class="sample-pics">-->
-<!--    <div class="small-container" style="background-image: url('assets/img/jungle.jpg'); height: 352px">-->
-<!--        <div class="row">-->
-<!--            <div class="col-3">-->
-<!--                <img src="assets/img/pic5.jpg">-->
-<!--            </div>-->
-<!--            <div class="col-3">-->
-<!--                <img src="assets/img/van6.jpg">-->
-<!--            </div>-->
-<!--            <div class="col-3">-->
-<!--                <img src="assets/img/pic7.jpg">-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!--    </div>-->
-<!--</div>-->
-
-<!--{{----------------------featured teas section------------------}}-->
-
-<div id="gallery">
-    <div class="small-container">
-        <h2 class="title">Featured Teas</h2>
-        <div class="row">
-            <div class="col-4">
-                <img src="assets/img/pic1.jpg">
-                <h4>Tea Sample 1</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$12.00</p>
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic2.jpg">
-                <h4>Tea Sample 8</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$17.00</p>
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic3.jpg">
-                <h4>Tea Sample 9</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <p>$24.00</p>
-            </div>
-            <div class="col-4">
-                <img src="assets/img/van1.jpg">
-                <h4>Tea Sample 11</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$7.00</p>
-            </div>
-        </div>
+<!--operation section ends here-->
 
 
-        <h2 class="title">Our Gallery</h2>
-        <div class="row">
-            <div class="col-4">
-                <img src="assets/img/van2.jpg">
-                <h4>Tea Sample 2</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$10.00</p>
-            </div>
-            <div class="col-4">
-                <img src="assets/img/van3.jpg">
-                <h4>Tea Sample 3</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <p>$16.00</p>
-            </div>
+<!--call all scripts-->
+<?php include 'scripts.php'; ?>
 
-            <div class="col-4">
-                <img src="assets/img/van4.jpg">
-                <h4>Tea Sample 4</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>$4.40</p>
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic5.jpg">
-                <h4>Tea Sample 5</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <p>$5.50</p>
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic10.jpeg">
-<!--                <h4>Tea Sample 6</h4>-->
-<!--                <div class="rating">-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star-half-o"></i>-->
-<!--                </div>-->
-<!--                <p>$14.50</p>-->
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic6.jpg">
-<!--                <h4>Tea Sample 7</h4>-->
-<!--                <div class="rating">-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star-o"></i>-->
-<!--                </div>-->
-<!--                <p>$10.00</p>-->
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic7.jpg">
-<!--                <h4>Tea Sample 10</h4>-->
-<!--                <div class="rating">-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star-half-o"></i>-->
-<!--                </div>-->
-<!--                <p>$19.00</p>-->
-            </div>
-            <div class="col-4">
-                <img src="assets/img/pic8.jpg">
-<!--                <h4>Tea Sample 12</h4>-->
-<!--                <div class="rating">-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star"></i>-->
-<!--                    <i class="fa fa-star-half-o"></i>-->
-<!--                </div>-->
-<!--                <p>$3.90</p>-->
-            </div>
-        </div>
-    </div>
-</div>
-<!--{{----------------------exclusive section------------------}}-->
-<div class="exclusive">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-2">
-                <img src="webimages/local-images/purple.jpg" class="exclusive-img">
-            </div>
-            <div class="col-2">
-                <p>Exclusive Teas From Kangaita</p>
-                <h1>Quality brands</h1>
-                <small>
-                    Kangaita Tea factory make five black orthodox grades. One of the best African tea is their OP-Orange Pekoe. It is a fancy looking grade.
-                    It contains numerous tips as it is made from the finest leaves. It consists of very tightly rolled leaf resulting in a very attractive twisted and wiry appearance.
-                    The liquor is quite balanced. It is demanded more for its attractive leaf appearance and its balanced cup. The production of OP is small and we are very proud and happy to offer this unique tea range to our customers.
-                    Liquid is clear and transparent with deep orange-red colour, aroma is sweet and malty with some spiciness. Taste is lively with citrus and light floral tones.
-                    However this tea tastes perfectly fine without additives, but a splash of milk can make a very smooth and energizing beverage.
-                    Perfect for Good Morning.
-                </small>
-                <a href="products" class="btn">Buy Now &#8594;</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--{{-------------------testimonials------------------------}}-->
-<div class="testimonial">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>
-                    The liquor is quite balanced. It is demanded more for its attractive leaf appearance and its balanced cup. The production of OP is small and we are very proud and happy to offer this unique tea range to our customers.
-                </p>
-                <i class="fa fa-quote-right"></i>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <img src="webimages/local-images/p1.jpg">
-                <h3>Person 1</h3>
-            </div>
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>
-                    The liquor is quite balanced. It is demanded more for its attractive leaf appearance and its balanced cup. The production of OP is small and we are very proud and happy to offer this unique tea range to our customers.
-                </p>
-                <i class="fa fa-quote-right"></i>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <img src="webimages/local-images/p4.jpg">
-                <h3>Person 2</h3>
-            </div>
-            <div class="col-3">
-                <i class="fa fa-quote-left"></i>
-                <p>
-                    The liquor is quite balanced. It is demanded more for its attractive leaf appearance and its balanced cup. The production of OP is small and we are very proud and happy to offer this unique tea range to our customers.
-                </p>
-                <i class="fa fa-quote-right"></i>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <img src="webimages/local-images/t4.jpg">
-                <h3>Person 3</h3>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--{{---------------------brands-----------------------}}-->
-<div class="brands">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-5">
-                <img src="webimages/local-images/logo1.png">
-            </div>
-            <div class="col-5">
-                <img src="webimages/local-images/logo2.png">
-            </div>
-            <div class="col-5">
-                <img src="webimages/local-images/logo1.png">
-            </div>
-            <div class="col-5">
-                <img src="webimages/local-images/logo2.png">
-            </div>
-            <div class="col-5">
-                <img src="webimages/local-images/logo1.png">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!------------------footer----------------------->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col-1">
-                <h3>Download our app</h3>
-                <div class="app-logo">
-                    <img src="assets/img/logo.jpeg">
-<!--                    <img src="webimages/local-images/app-logo3.png">-->
-
-<!--                    {{--                    <img src="webimages/local-images/app-logo2.png">--}}-->
-                </div>
-                <p>Get our app on playstore / appstore and interact with us more</p>
-            </div>
-            <div class="footer-col-2">
-                <img src="webimages/local-images/kangaitateas.jpg">
-                <p> Our purpose is to produce quality Orthodox and CTC teas </p>
-            </div>
-            <div class="footer-col-3">
-                <h3>Useful Links</h3>
-                <ul>
-                    <li>Farmers Portal</li>
-                    <li>Shop</li>
-                    <li>Home</li>
-                </ul>
-            </div>
-            <div class="footer-col-4">
-                <h3>Follow us on</h3>
-                <ul>
-                    <li>Twitter</li>
-                    <li>Facebook</li>
-                    <li>Instagram</li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-        <p class="copyright">Made by Havoc <i class="fa fa-copyright"></i>
-            <script>
-                var CurrentYear = new Date().getFullYear()
-                document.write(CurrentYear)
-            </script>
-        </p>
-    </div>
-</div>
-<!----------------toggle menu--------------->
-<script>
-    var menuItems = document.getElementById("menuItems");
-    menuItems.style.maxHeight = '0px';
-
-    function menutoggle()
-    {
-        if (menuItems.style.maxHeight = '0px')
-        {
-            menuItems.style.maxHeight = '200px'
-        }
-        else
-        {
-            menuItems.style.maxHeight = '0px'
-        }
-    }
-</script>
-</body>
-</html>
+<!--call footer-->
+<?php include 'footer.php'; ?>
