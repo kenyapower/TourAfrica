@@ -4,6 +4,12 @@
     }
 }
 
+@media (max-width: 767.98px) {
+    .border-sm-start-none {
+        border-left: none !important;
+    }
+}
+
 .wrapper{
     background-color: #8fc4b7;
 }
@@ -132,3 +138,22 @@ body, html {
     color: black;
 }
 
+#cars{
+    background-image: url("img/vans.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#dropdown {
+    position: relative;
+    left: -150px;
+}
+/*#dropdownMenuButton {*/
+/*    position: absolute;*/
+/*    background-color: #555;*/
+/*    width: 100%;*/
+/*    left: -120px;*/
+/*    top: 100%;*/
+/*    z-index: 1;*/
+/*}*/

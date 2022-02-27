@@ -270,7 +270,7 @@ $details = include('db_connect.php');
                 </div>
                 <div class="card-body">
                     <p>Get a vehicle from our fleet.</p>
-                    <a href="car.php">
+                    <a href="fleet.php">
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book Vehicle</button>
                     </a>
                 </div>

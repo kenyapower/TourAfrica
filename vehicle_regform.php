@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vehicle Reg| TourAfrica</title>
+    <title>Vehicle Reg | TourAfrica</title>
     <!-- Favicons -->
     <link href="assets/img/logo.jpeg" rel="icon">
 
