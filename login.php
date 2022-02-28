@@ -1,3 +1,30 @@
+<?php
+//include 'db_connect.php';
+//
+//session_start();
+//
+//if (isset($_POST['submit'])){
+//    $email = $_POST['email'];
+//    $password = md5($_POST['password']);
+//
+//    //check input data aganist database data
+//    $sql = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+//
+//    $result = mysqli_query($conn, $sql);
+//    if($result->num_rows > 0){
+//        $row = mysqli_fetch_assoc($result);
+//        $_SESSION['username'] = $row['username'];
+//        header("Location: dashboard.php");
+//    } else{
+//         echo "<script>alert('Either Email or password is wrong !')</script>";
+//    }
+//}
+//?>
+<!--INSERT INTO `users` (`id`, `username`, `password`, `position`, `created_at`) VALUES ('1', 'admin', 'admin1234', 'admin', CURRENT_TIMESTAMP);-->
+
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,19 +59,22 @@
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-                                <div class="form-outline form-white mb-4">
-                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typeEmailX">Email</label>
-                                </div>
+                                <form action="loginHandler.php" method="POST">
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailX" name="email" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Email</label>
+                                    </div>
 
-                                <div class="form-outline form-white mb-4">
-                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                    <label class="form-label" for="typePasswordX">Password</label>
-                                </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordX">Password</label>
+                                    </div>
 
-                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+
+                                </form>
 
                                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
                                     <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>

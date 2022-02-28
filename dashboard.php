@@ -61,13 +61,13 @@
         <div class="d-flex align-items-center">
             
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
+                <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="" >My profile</a>
                     <a class="dropdown-item" href="" >Settings</a>
-                    <a class="dropdown-item" href="" >Logout</a>
+                    <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
             </div>
 
@@ -85,34 +85,34 @@
     <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
             <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Get An Account</h4>
+                <h4 class="my-0 font-weight-normal">*******</h4>
             </div>
             <div class="card-body">
                 <p>Start earning.<br> Register as a driver today</p>
-                <a href="account_request.php">
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign up for free </button>
+                <a href="#">
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> ***e </button>
                 </a>
             </div>
         </div>
 
         <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
             <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Login</h4>
+                <h4 class="my-0 font-weight-normal">****</h4>
             </div>
             <div class="card-body">
                 <p>Access Your Account</p>
-                <a href="login.php">
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign In </button>
+                <a href="#">
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> @@@@@@@@ </button>
                 </a>
             </div>
         </div>
         <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
             <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Book A Vehicle</h4>
+                <h4 class="my-0 font-weight-normal">&%&%</h4>
             </div>
             <div class="card-body">
                 <p>Get a vehicle from our fleet.</p>
-                <a href="fleet.php">
+                <a href="#">
                     <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book Vehicle</button>
                 </a>
             </div>

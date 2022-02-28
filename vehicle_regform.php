@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Vehicle Reg | TourAfrica</title>
+
     <!-- Favicons -->
     <link href="assets/img/logo.jpeg" rel="icon">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/mystyle.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" ></script>
 
-
 </head>
 <body>
 
-<section class="h-100 h-custom" style="background-color: #8fc4b7;">
-<!--    <section class="vh-100" style="background-color: #2779e2;">-->
+<div class="wrapper">
+    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+        <!--    <section class="vh-100" style="background-color: #2779e2;">-->
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
@@ -102,5 +102,7 @@
             </div>
         </div>
     </section>
+
+</div>
 </body>
 </html>
