@@ -1,30 +1,3 @@
-<?php
-//include 'db_connect.php';
-//
-//session_start();
-//
-//if (isset($_POST['submit'])){
-//    $email = $_POST['email'];
-//    $password = md5($_POST['password']);
-//
-//    //check input data aganist database data
-//    $sql = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
-//
-//    $result = mysqli_query($conn, $sql);
-//    if($result->num_rows > 0){
-//        $row = mysqli_fetch_assoc($result);
-//        $_SESSION['username'] = $row['username'];
-//        header("Location: dashboard.php");
-//    } else{
-//         echo "<script>alert('Either Email or password is wrong !')</script>";
-//    }
-//}
-//?>
-<!--INSERT INTO `users` (`id`, `username`, `password`, `position`, `created_at`) VALUES ('1', 'admin', 'admin1234', 'admin', CURRENT_TIMESTAMP);-->
-
-
-
-
 <!doctype html>
 <html lang="en">
 <head>

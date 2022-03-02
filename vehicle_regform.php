@@ -19,8 +19,22 @@
 <body>
 
 <div class="wrapper">
-    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
-        <!--    <section class="vh-100" style="background-color: #2779e2;">-->
+    <!-- Creating notification when the
+        user logs in -->
+
+    <!-- Accessible only to the users that
+            have logged in already -->
+    <?php if (isset($_SESSION['success'])) : ?>
+        <div class="error success" >
+            <h3>
+                <?php
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+                ?>
+            </h3>
+        </div>
+    <?php endif ?>
+    <section class="h-100 h-custom">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-9">
@@ -28,74 +42,148 @@
                     <h1 class="text-white mb-4">Provide Vehicle Info</h1>
 
                     <div class="card" style="border-radius: 15px;">
-                        <div class="card-body">
+                        <form action="vehicleHandler.php" method="POST">
+                            <div class="card-body">
 
-                            <div class="row align-items-center pt-4 pb-3">
-                                <div class="col-md-3 ps-5">
+                                <div class="row align-items-center pt-4 pb-3">
+                                    <div class="col-md-3 ps-5">
 
-                                    <h6 class="mb-0">Full name</h6>
+                                        <h6 class="mb-0">Vehicle Plate</h6>
 
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input type="text" name="vehicle_reg" class="form-control form-control-lg" />
+
+                                    </div>
                                 </div>
-                                <div class="col-md-9 pe-5">
 
-                                    <input type="text" class="form-control form-control-lg" />
+                                <hr class="mx-n3">
 
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0">Vehicle Make</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input type="text" name="v_make" class="form-control form-control-lg" placeholder="eg: Toyota Noah" />
+
+                                    </div>
                                 </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0">Vehicle Capacity</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input type="number" name="v_capacity" class="form-control form-control-lg" placeholder="eg: 7 seater" />
+
+                                    </div>
+                                </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0"> Operation Region</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <select  class="form-control form-control-lg" name="v_region">
+                                            <option  selected>Choose Region</option>
+                                            <option value="North Eastern">Central Africa</option>
+                                            <option value="Central Africa">Central Africa</option>
+                                            <option value="Sub-Sahara">Sub-Sahara</option>
+                                            <option value="South-Africa">South-Africa</option>
+                                        </select>
+<!--                                    <input type="email" name="vehicle_capacity" class="form-control form-control-lg" placeholder="eg: 7 seater" />-->
+
+                                    </div>
+                                </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0"> Charges Per Day</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input type="number" name="v_charges" class="form-control form-control-lg" placeholder="Curency USD" />
+
+                                    </div>
+                                </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0">Upload Logbook/ Insurance</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input class="form-control form-control-lg" id="formFileLg" name="v_logbook" type="file" />
+                                        <div class="small text-muted mt-2">Upload vehicle Logbook/Insurance to justify owning the car. Max file size 25 MB</div>
+
+                                    </div>
+                                </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0">Upload valid Driving License</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input class="form-control form-control-lg" name="driver_license" id="formFileLg" type="file" />
+                                        <div class="small text-muted mt-2">Upload copy of Driving License. Max file size 25 MB</div>
+
+                                    </div>
+                                </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="row align-items-center py-3">
+                                    <div class="col-md-3 ps-5">
+
+                                        <h6 class="mb-0">Upload Vehicle Image</h6>
+
+                                    </div>
+                                    <div class="col-md-9 pe-5">
+
+                                        <input class="form-control form-control-lg" id="formFileLg" name="v_image" type="file" />
+                                        <div class="small text-muted mt-2">Upload Vehicle Image. Max file size 25MB</div>
+
+                                    </div>
+                                </div>
+
+                                <hr class="mx-n3">
+
+                                <div class="px-5 py-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Info</button>
+                                </div>
+
                             </div>
 
-                            <hr class="mx-n3">
+                            <input type="text" name="usercode" value="<?php echo $_SESSION['usercode']; ?>">
 
-                            <div class="row align-items-center py-3">
-                                <div class="col-md-3 ps-5">
-
-                                    <h6 class="mb-0">Email address</h6>
-
-                                </div>
-                                <div class="col-md-9 pe-5">
-
-                                    <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
-
-                                </div>
-                            </div>
-
-                            <hr class="mx-n3">
-
-                            <div class="row align-items-center py-3">
-                                <div class="col-md-3 ps-5">
-
-                                    <h6 class="mb-0">Full name</h6>
-
-                                </div>
-                                <div class="col-md-9 pe-5">
-
-                                    <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
-
-                                </div>
-                            </div>
-
-                            <hr class="mx-n3">
-
-                            <div class="row align-items-center py-3">
-                                <div class="col-md-3 ps-5">
-
-                                    <h6 class="mb-0">Upload CV</h6>
-
-                                </div>
-                                <div class="col-md-9 pe-5">
-
-                                    <input class="form-control form-control-lg" id="formFileLg" type="file" />
-                                    <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file size 50 MB</div>
-
-                                </div>
-                            </div>
-
-                            <hr class="mx-n3">
-
-                            <div class="px-5 py-4">
-                                <button type="submit" class="btn btn-primary btn-lg">Send application</button>
-                            </div>
-
-                        </div>
+                        </form>
                     </div>
 
                 </div>
