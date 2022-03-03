@@ -1,3 +1,8 @@
+<?php
+// session starts with the help of this function
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,26 +11,24 @@
 
     <!-- Favicons -->
     <link href="assets/img/logo.jpeg" rel="icon">
-
     <link rel="stylesheet" type="text/css" href="assets/mystyle.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-<!--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>-->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" ></script>
 
-<!---->
-<!---->
-<!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-<!--    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-
 </head>
 <body>
-
+<?php
+// If session is not set then redirect to Login Page
+if(!isset($_SESSION['use']))
+{
+    header("Location:Login.php");
+}
+?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -62,7 +65,7 @@
             
             <div class="dropdown">
                 <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    My Account
+                    <?php echo $_SESSION['use'];?>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="" >My profile</a>
