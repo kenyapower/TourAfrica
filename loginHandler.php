@@ -9,7 +9,8 @@ mysqli_select_db($conn,'tours');
 
 //get values from login file
 $email      = $_POST['email'];
-$password   = $_POST['password'];
+$pass       = $_POST['password'];
+$password   = md5($pass);
 
 $query = "select * from users where email = '$email' && password = '$password'";
 

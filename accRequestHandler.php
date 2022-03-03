@@ -25,6 +25,7 @@ $sname      = $_REQUEST['sname'];
 $phone      = $_REQUEST['phone'];
 $tos        = 'agreed';
 $userCode   = ($driverCode);
+$username   = $fname.$userCode;
 
 //vehicle detail
 $v_reg      = $_REQUEST['v_reg'];
@@ -32,83 +33,82 @@ $v_make     = $_REQUEST['v_make'];
 $v_region   = $_REQUEST['v_region'];
 $v_capacity = $_REQUEST['v_capacity'];
 $v_charges  = $_REQUEST['v_charges'];
-//$v_logbook  = $_REQUEST['v_logbook'];
-//$driver_license  = $_REQUEST['driver_license'];
-//$v_image  = $_REQUEST['v_image'];
 
 $email      = $_REQUEST['email'];
 $position   = $_REQUEST['position'];
+
 //encrypt provided password
 $pass       = md5($_REQUEST['password']);
 $password   = ($pass);
 
 //handling files uploaded
-$v_logbook    = $_FILES["v_logbook"]["name"];
-
+$v_logbook      = $_FILES["v_logbook"]["name"];
 $driver_license = $_FILES["driver_license"]["name"];
-
-$v_image    = $_FILES["v_image"]["name"];
+$v_image        = $_FILES["v_image"]["name"];
 
 $target_dir = "documents/";
-
-    if (($_FILES["v_logbook"]["name"] != "")) {
-// Where the file is going to be stored
-        $file = $_FILES["v_logbook"]["name"];
-        $path = pathinfo($file);
-        $filename = $path['filename'];
-        $ext = $path['extension'];
-        $temp_name = $_FILES["v_logbook"]["name"];
-        $path_filename_ext = $target_dir . $filename . "." . $ext;
+$v_logbook  = basename($_FILES["v_logbook"]["name"]);
+$targetFilePath = $target_dir . $v_logbook;
+$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 
-        if (($_FILES["driver_license"]["name"] != "")) {
-// Where the file is going to be stored
-            $file = $_FILES["driver_license"]["name"];
-            $path = pathinfo($file);
-            $filename = $path['filename'];
-            $ext = $path['extension'];
-            $temp_name = $_FILES["driver_license"]["name"];
-            $path_filename_ext = $target_dir . $filename . "." . $ext;
-
-            if (($_FILES["v_image"]["name"] != "")) {
-// Where the file is going to be stored
-                $file = $_FILES["v_image"]["name"];
-                $path = pathinfo($file);
-                $filename = $path['filename'];
-                $ext = $path['extension'];
-                $temp_name = $_FILES["v_image"]["name"];
-                $path_filename_ext = $target_dir . $filename . "." . $ext;
-
-// Check if file already exists
-                if (file_exists($path_filename_ext)) {
-                    echo "Sorry, file already exists.";
-                } else {
-                    move_uploaded_file($temp_name, $path_filename_ext);
-                    echo "Congratulations! File Uploaded Successfully.";
-                }
-            }
+if(!empty($_FILES["v_logbook"]["name"])) {
+    if (!file_exists($targetFilePath)) {
+        // Upload file to server
+        if (move_uploaded_file($v_logbook, $target_dir)) {
+            echo "Logbook Uploaded Successfully";
         }
-    }
+    } else {
+        echo "Sorry, logbook already exists.";
+        }
+}
 
-// Performing insert query execution
-// here our drivers table
-$sql = "INSERT INTO drivers (fname, sname, phoneNumber, usercode, tos) VALUES ('$fname','$sname','$phone','$userCode','$tos')";
-$sql = "INSERT INTO users  (email, password, position, usercode) VALUES ('$email','$password','$position','$userCode')";
-$sql = "INSERT INTO vehicles (v_reg, v_make, v_capacity, v_region, v_charges, v_logbook, driver_license, v_image, v_usercode)
+if(!empty($_FILES["driver_license"]["name"])) {
+    if (!file_exists($targetFilePath)) {
+        // Upload file to server
+        if (move_uploaded_file($driver_license, $target_dir)) {
+            echo "License Uploaded Successfully";
+
+        }
+    } else {
+        echo "Sorry, License already exists.";
+        }
+}
+
+if(!empty($_FILES["v_image"]["name"])) {
+    if (!file_exists($targetFilePath)) {
+        // Upload file to server
+        if (move_uploaded_file($v_image, $target_dir)) {
+            echo "vehicle image Uploaded Successfully";
+
+        }
+    } else {
+        echo "Sorry, vehicle image already exists.";
+        }
+}
+
+//insert data
+$insertQuery = "INSERT INTO drivers (fname, sname, phoneNumber, usercode, vehicle_reg, tos) VALUES ('$fname','$sname','$phone','$userCode','$v_reg','$tos')";
+//save using msqli_query
+$save = mysqli_query($conn, $insertQuery);
+//check if saved successfully
+if (isset($save)){
+    //save second mysqli_query
+    $insertQuery2 = "INSERT INTO users  (username, email, password, position, usercode) VALUES ('$username', '$email','$password','$position','$userCode')";
+    $save2 = mysqli_query($conn, $insertQuery2);
+
+    //check if second save is successfully
+    if (isset($save2)){
+        //save third mysqli_query
+        $insertQuery3 = "INSERT INTO vehicles (v_reg, v_make, v_capacity, v_region, v_charges, v_logbook, driver_license, v_image, v_usercode)
         VALUES ('$v_reg','$v_make','$v_capacity','$v_region','$v_charges','$v_logbook','$driver_license','$v_image','$userCode')";
+        $save3 = mysqli_query($conn, $insertQuery3);
 
-/* execute multi query */
-mysqli_multi_query($conn, $sql);
-
-if($conn === true){
-    echo "<h3>Data entry successfully. </h3>";
-    header("Location:dashboard.php");
-
-    echo nl2br("\n$fname\n $sname\n "
-        . "$phone\n $userCode\n $tos");
-} else{
-    echo "ERROR: Oopsy! Sorry $sql. "
-        . mysqli_error($conn);
+        //redirect if all insert queries are successful.
+        header("location:login.php");
+    }
+}else{
+    echo "Oopsy! An Error Occured.";
 }
 
 // Close connection
