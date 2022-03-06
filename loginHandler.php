@@ -25,12 +25,9 @@ $result = mysqli_query($conn, $query);
 $num = mysqli_num_rows($result);
 
 if($num == 1){
-//    $_SESSION['use']=$email;
 
     $_SESSION['email'] = $email;
     echo "Login successful !!! Welcome".$_SESSION['use']=$email;
-
-//    echo "Login successful !!! Welcome".$_SESSION[$email];
 
     header('location:dashboard.php');
 }else{

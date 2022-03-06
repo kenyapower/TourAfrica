@@ -1,129 +1,237 @@
 <?php
 // session starts with the help of this function
 session_start();
+
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Dash | TourAfrica</title>
-
     <!-- Favicons -->
     <link href="assets/img/logo.jpeg" rel="icon">
-    <link rel="stylesheet" type="text/css" href="assets/mystyle.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+         body{
+             background-color: #8fc4b7 ;
+             /*background-image: url("assets/img/jungle.jpg");*/
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" ></script>
+         }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 550px}
 
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 767px) {
+            .row.content {height: auto;}
+        }
+    </style>
 </head>
 <body>
 <?php
-// If session is not set then redirect to Login Page
-if(!isset($_SESSION['use']))
-{
-    header("Location:Login.php");
-}
+
+//start db connection
+$conn = mysqli_connect('localhost','root','','tours','3307');
+
+//execute the query first
+$query= "SELECT * FROM `users` WHERE `email` = '".$_SESSION['email']."'"or die(mysqli_connect_error());
+//store the result to a variable
+$result = mysqli_query($conn, $query);
+//fetch the stored variable
+$arr = mysqli_fetch_array($result);
+//print results
+//print_r($arr);
 ?>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
 
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Navbar brand -->
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                <img src="assets/img/logo.jpeg" height="15" alt="TourAfrica Logo" loading="lazy"/>
-            </a>
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
-                </li>
-            </ul>
-            <!-- Left links -->
+<!--if user is admin show this dashboard section-->
+<?php if( $arr['position'] === 'admin'){ ?>
+        <nav class="navbar navbar-inverse visible-xs">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="/assets/img/logo.jpeg"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#"><?php echo $_SESSION['email'];?></a></li>
+                        <li><a href="#">Age</a></li>
+                        <li><a href="#">Gender</a></li>
+                        <li><a href="#">Geo</a></li>
+                        <li><a href="logout.php">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-3 sidenav hidden-xs">
+                    <h2><img src="assets/img/logo.jpeg" width="290" height="99"></h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#section1"><?php echo $_SESSION['email'];?></a></li>
+                        <li><a href="#section2">Age</a></li>
+                        <li><a href="#section3">Gender</a></li>
+                        <li><a href="logout.php">Logout</a></li>
+                    </ul><br>
+                </div>
+                <br>
+
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <h4>You are logged in as: <?php echo $arr['position'];?></h4>
+                            <p>Some text..</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="well">
+                                    <h4>Drivers</h4>
+                                    <p>1 Million</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="well">
+                                    <h4>Vehicles</h4>
+                                    <p>100 Million</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="well">
+                                    <h4>Invoices</h4>
+                                    <p>10 Million</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="well">
+                                    <h4>Bounce</h4>
+                                    <p>30%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="well">
+                                    <p>Text</p>
+                                    <p>Text</p>
+                                    <p>Text</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="well">
+                                    <p>Text</p>
+                                    <p>Text</p>
+                                    <p>Text</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="well">
+                                    <p>Text</p>
+                                    <p>Text</p>
+                                    <p>Text</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="well">
+                                    <p>Text</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="well">
+                                    <p>Text</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <!-- Collapsible wrapper -->
+<!--    end admin section-->
 
-        <!-- Right elements -->
-        <div class="d-flex align-items-center">
-            
-            <div class="dropdown">
-                <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $_SESSION['use'];?>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="" >My profile</a>
-                    <a class="dropdown-item" href="" >Settings</a>
-                    <a class="dropdown-item" href="logout.php" >Logout</a>
+<!--if user is driver show this dashboard section-->
+    <?php }elseif( $arr['position'] === 'driver'){ ?>
+            <nav class="navbar navbar-inverse visible-xs">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="/assets/img/logo.jpeg"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#"><?php echo $_SESSION['email'];?></a></li>
+                            <li><a href="#">Age</a></li>
+                            <li><a href="#">Gender</a></li>
+                            <li><a href="#">Geo</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <div class="row content">
+                    <div class="col-sm-3 sidenav hidden-xs">
+                        <h2><img src="assets/img/logo.jpeg" width="290" height="99"></h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#section1"><?php echo $_SESSION['email'];?></a></li>
+                            <li><a href="#section2">Age</a></li>
+                            <li><a href="#section3">Gender</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul><br>
+                    </div>
+                    <br>
+
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <h4>You are logged in as: <?php echo $arr['position'];?></h4>
+                                <p>Some text..</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="well">
+                                        <h4>My Vehicle</h4>
+                                        <p>1 Million</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="well">
+                                        <h4>My Invoices</h4>
+                                        <p>100 Million</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="well">
+                                        <h4>My Profiles</h4>
+                                        <p>10 Million</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
 
-        </div>
-        <!-- Right elements -->
-    </div>
-    <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
+<?php }?>
+<!--    end driver section-->
 
-<br>
-<br>
-<!--body start-->
-<div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">*******</h4>
-            </div>
-            <div class="card-body">
-                <p>Start earning.<br> Register as a driver today</p>
-                <a href="#">
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> ***e </button>
-                </a>
-            </div>
-        </div>
-
-        <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">****</h4>
-            </div>
-            <div class="card-body">
-                <p>Access Your Account</p>
-                <a href="#">
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> @@@@@@@@ </button>
-                </a>
-            </div>
-        </div>
-        <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">&%&%</h4>
-            </div>
-            <div class="card-body">
-                <p>Get a vehicle from our fleet.</p>
-                <a href="#">
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book Vehicle</button>
-                </a>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!--body ends-->
+<!--call footer-->
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
