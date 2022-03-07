@@ -42,50 +42,37 @@ $pass       = md5($_REQUEST['password']);
 $password   = ($pass);
 
 //handling files uploaded
-$v_logbook      = $_FILES["v_logbook"]["name"];
-$driver_license = $_FILES["driver_license"]["name"];
-$v_image        = $_FILES["v_image"]["name"];
+$targetDir = "documents/";
+$v_logbook          = basename($_FILES["v_logbook"]["name"]);
+$driver_license     = basename($_FILES["driver_license"]["name"]);
+$v_image            = basename($_FILES["v_image"]["name"]);
+$targetFilePath     = $targetDir . $v_logbook ;
+$targetFilePath1    = $targetDir . $driver_license ;
+$targetFilePath2    = $targetDir . $v_image ;
 
-$target_dir = "documents/";
-$v_logbook  = basename($_FILES["v_logbook"]["name"]);
-$targetFilePath = $target_dir . $v_logbook;
-$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+if(move_uploaded_file($_FILES["v_logbook"]["tmp_name"], $targetFilePath)) {
 
+        echo "File uploaded successfully!";
 
-if(!empty($_FILES["v_logbook"]["name"])) {
-    if (!file_exists($targetFilePath)) {
-        // Upload file to server
-        if (move_uploaded_file($v_logbook, $target_dir)) {
-            echo "Logbook Uploaded Successfully";
-        }
-    } else {
-        echo "Sorry, logbook already exists.";
-        }
+} else{
+    echo "Sorry, file not uploaded, please try again!";
 }
 
-if(!empty($_FILES["driver_license"]["name"])) {
-    if (!file_exists($targetFilePath)) {
-        // Upload file to server
-        if (move_uploaded_file($driver_license, $target_dir)) {
-            echo "License Uploaded Successfully";
+if(move_uploaded_file($_FILES['driver_license']['tmp_name'], $targetFilePath1)) {
 
-        }
-    } else {
-        echo "Sorry, License already exists.";
-        }
+        echo "File uploaded successfully!";
+
+} else{
+    echo "Sorry, file not uploaded, please try again!";
+}
+if(move_uploaded_file($_FILES['v_image']['tmp_name'], $targetFilePath2)) {
+
+        echo "File uploaded successfully!";
+
+} else{
+    echo "Sorry, file not uploaded, please try again!";
 }
 
-if(!empty($_FILES["v_image"]["name"])) {
-    if (!file_exists($targetFilePath)) {
-        // Upload file to server
-        if (move_uploaded_file($v_image, $target_dir)) {
-            echo "vehicle image Uploaded Successfully";
-
-        }
-    } else {
-        echo "Sorry, vehicle image already exists.";
-        }
-}
 
 //insert data
 $insertQuery = "INSERT INTO drivers (fname, sname, phoneNumber, usercode, vehicle_reg, tos) VALUES ('$fname','$sname','$phone','$userCode','$v_reg','$tos')";

@@ -251,19 +251,15 @@ $details = include('db_connect.php');
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign up for free </button>
                     </a>
                 </div>
-            </div>
-
-            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Login</h4>
-                </div>
                 <div class="card-body">
                     <p>Access Your Account</p>
                     <a href="login.php">
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign In </button>
                     </a>
                 </div>
+
             </div>
+
             <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Book A Vehicle</h4>
@@ -275,6 +271,19 @@ $details = include('db_connect.php');
                     </a>
                 </div>
             </div>
+
+            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Get Your Invoice</h4>
+                </div>
+                <div class="card-body">
+                    <p>Search for invoice</p>
+                    <a href="carinvoice.php">
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Search Here </button>
+                    </a>
+                </div>
+            </div>
+
         </div>
 
     </div>

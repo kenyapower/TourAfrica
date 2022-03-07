@@ -181,7 +181,7 @@ session_start();
                         <li class="active"><a href="#"><?php echo $_SESSION['email'];?></a></li>
                         <li><a href="#">Age</a></li>
                         <li><a href="#">Gender</a></li>
-                        <li><a href="#">Geo</a></li>
+                        <li><a href="myProfile.php">My Profile</a></li>
                         <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -195,7 +195,7 @@ session_start();
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="#section1"><?php echo $_SESSION['email'];?></a></li>
                         <li><a href="#section2">Age</a></li>
-                        <li><a href="#section3">Gender</a></li>
+                        <li><a href="myProfile.php">My Profile</a></li>
                         <li><a href="logout.php">Logout</a></li>
                     </ul><br>
                 </div>
@@ -221,7 +221,7 @@ session_start();
                         </div>
                         <div class="col-sm-3">
                             <div class="well">
-                                <h4>My Profiles</h4>
+                                <h4>My Profile</h4>
                                 <p>10 Million</p>
                             </div>
                         </div>
