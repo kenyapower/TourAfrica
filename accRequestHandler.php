@@ -75,7 +75,7 @@ if(move_uploaded_file($_FILES['v_image']['tmp_name'], $targetFilePath2)) {
 
 
 //insert data
-$insertQuery = "INSERT INTO drivers (fname, sname, phoneNumber, usercode, vehicle_reg, tos) VALUES ('$fname','$sname','$phone','$userCode','$v_reg','$tos')";
+$insertQuery = "INSERT INTO drivers (fname, sname, phoneNumber, usercode, vehicle_reg, driver_license, tos) VALUES ('$fname','$sname','$phone','$userCode','$v_reg','$driver_license', '$tos')";
 //save using msqli_query
 $save = mysqli_query($conn, $insertQuery);
 //check if saved successfully
@@ -87,8 +87,8 @@ if (isset($save)){
     //check if second save is successfully
     if (isset($save2)){
         //save third mysqli_query
-        $insertQuery3 = "INSERT INTO vehicles (v_reg, v_make, v_capacity, v_region, v_charges, v_logbook, driver_license, v_image, v_usercode)
-        VALUES ('$v_reg','$v_make','$v_capacity','$v_region','$v_charges','$v_logbook','$driver_license','$v_image','$userCode')";
+        $insertQuery3 = "INSERT INTO vehicles (v_reg, v_make, v_capacity, v_region, v_charges, v_logbook, v_image, v_usercode)
+        VALUES ('$v_reg','$v_make','$v_capacity','$v_region','$v_charges','$v_logbook','$v_image','$userCode')";
         $save3 = mysqli_query($conn, $insertQuery3);
 
         //redirect if all insert queries are successful.
