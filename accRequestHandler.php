@@ -1,10 +1,4 @@
 <?php
-// servername => localhost
-// username => root
-// password => empty
-// database name => tours
-//port => 3307
-//$conn = mysqli_connect("localhost", "root", "", "staff");
 
 $conn = mysqli_connect('localhost','root','','tours','3307');
 
@@ -24,6 +18,8 @@ $fname      = $_REQUEST['fname'];
 $sname      = $_REQUEST['sname'];
 $phone      = $_REQUEST['phone'];
 $tos        = 'agreed';
+$userstatus = 'Active';
+$userlevel  = 'Primary';
 $userCode   = ($driverCode);
 $username   = $fname.$userCode;
 
@@ -33,6 +29,7 @@ $v_make     = $_REQUEST['v_make'];
 $v_region   = $_REQUEST['v_region'];
 $v_capacity = $_REQUEST['v_capacity'];
 $v_charges  = $_REQUEST['v_charges'];
+$v_status   = 'Available';
 
 $email      = $_REQUEST['email'];
 $position   = $_REQUEST['position'];
@@ -81,14 +78,14 @@ $save = mysqli_query($conn, $insertQuery);
 //check if saved successfully
 if (isset($save)){
     //save second mysqli_query
-    $insertQuery2 = "INSERT INTO users  (username, email, password, position, usercode) VALUES ('$username', '$email','$password','$position','$userCode')";
+    $insertQuery2 = "INSERT INTO users  (username, email, password, position, usercode, userstatus, userlevel) VALUES ('$username', '$email','$password','$position','$userCode','$userstatus','$userlevel')";
     $save2 = mysqli_query($conn, $insertQuery2);
 
     //check if second save is successfully
     if (isset($save2)){
         //save third mysqli_query
-        $insertQuery3 = "INSERT INTO vehicles (v_reg, v_make, v_capacity, v_region, v_charges, v_logbook, v_image, v_usercode)
-        VALUES ('$v_reg','$v_make','$v_capacity','$v_region','$v_charges','$v_logbook','$v_image','$userCode')";
+        $insertQuery3 = "INSERT INTO vehicles (v_reg, v_make, v_capacity, v_region, v_charges, v_logbook, v_image, v_usercode, v_status)
+        VALUES ('$v_reg','$v_make','$v_capacity','$v_region','$v_charges','$v_logbook','$v_image','$userCode','$v_status')";
         $save3 = mysqli_query($conn, $insertQuery3);
 
         //redirect if all insert queries are successful.

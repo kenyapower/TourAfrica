@@ -57,7 +57,7 @@ session_start();
     ?>
 
     <!--if user is admin show this dashboard section-->
-    <?php if( $arr['position'] === 'admin'){ ?>
+    <?php if( $arr['position'] === 'Administrator'){ ?>
         <nav class="navbar navbar-inverse visible-xs">
             <div class="container-fluid">
                 <div class="navbar-header">
