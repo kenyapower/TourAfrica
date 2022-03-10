@@ -81,10 +81,6 @@ $sql = "SELECT * FROM vehicles";
                                             <span>Jungle Green Color<br /></span>
                                         </div>
                                         <p class="text-truncate mb-4 mb-md-0">
-                                            There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words which don't look even slightly believable.
-                                        </p>
                                     </div>
                                     <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                                         <div class="d-flex flex-row align-items-center mb-1">
@@ -95,9 +91,9 @@ $sql = "SELECT * FROM vehicles";
                                         <h6 class="text-success"><?php echo $Vehicle['v_status']?></h6>
                                         <div class="d-flex flex-column mt-4">
                                             <!--                                        <button class="btn btn-primary btn-sm" type="button">Details</button>-->
-                                            <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                                                Book Vehicle
-                                            </button>
+<!--                                            <button class="btn btn-outline-primary btn-sm mt-2" type="button">-->
+<!--                                                Book Vehicle-->
+<!--                                            </button>-->
                                         </div>
                                     </div>
                                 </div>

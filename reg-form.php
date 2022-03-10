@@ -41,11 +41,7 @@
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline datepicker">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="exampleDatepicker1"
-                                        />
+                                        <input type="text" class="form-control" id="exampleDatepicker1" />
                                         <label for="exampleDatepicker1" class="form-label">Select a date</label>
                                     </div>
 

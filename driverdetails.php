@@ -13,8 +13,8 @@ if (isset($_GET["usercode"])){
     $driverimage    = $_GET['image'];
     $driverlicense = $_GET['license'];
     $driverusercode = $_GET['usercode'];
-    print_r($driverusercode);
-    $query = ("SELECT v_reg, v_usercode FROM vehicles WHERE v_usercode ='$driverusercode'");
+//    print_r($driverusercode);
+//    $query = ("SELECT v_reg, v_usercode FROM vehicles WHERE v_usercode ='$driverusercode'");
 
 }else{
     header("location:drivers.php");
@@ -113,10 +113,10 @@ if (isset($_GET["usercode"])){
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Driver" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4><?php echo ucfirst($driverfname);?></h4>
-                                <p class="text-secondary mb-1">Full Stack Developer</p>
-                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                <button class="btn btn-primary">Follow</button>
-                                <button class="btn btn-outline-primary">Message</button>
+                                <p class="text-secondary mb-1">Driver</p>
+                                <p class="text-muted font-size-sm">Primary</p>
+<!--                                <button class="btn btn-primary">Follow</button>-->
+<!--                                <button class="btn btn-outline-primary">Message</button>-->
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@ if (isset($_GET["usercode"])){
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                fip@jukmuh.al
+                                myemailhere
                             </div>
                         </div>
                         <hr>
@@ -186,13 +186,13 @@ if (isset($_GET["usercode"])){
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                N/A
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a class="btn btn-info " href="editdriver.php">Edit</a>
+                                <a class="btn btn-info " href="#">Edit</a>
                             </div>
                         </div>
                     </div>
@@ -204,41 +204,28 @@ if (isset($_GET["usercode"])){
                             <div class="card-body">
                                 <?php
                                 //start db connection
-//                                $conn = mysqli_connect('localhost','root','','tours','3307');
-//
-                                $result = $conn->query($query);
+                                $conn = mysqli_connect('localhost','root','','tours','3307');
 
-//                                $query =  "SELECT * FROM vehicles WHERE v_usercode ='$driverusercode'";
+                                // Check connection
+                                if($conn === false){
+                                die("ERROR: Could not connect. " . mysqli_connect_error());
+                                }?>
+<!--                                // Attempt select query execution-->
 
-//                                $result = mysqli_query($conn, $query);
-//                                $row_cnt = mysqli_num_rows($result);
-                                printf("Result set has %d rows.\n", $result);
-
-                                if (!$result) {
-                                    printf("Error: %s\n", mysqli_error($conn));
-                                    exit();
-                                }else{
-                                $arr = mysqli_fetch_array($result);
-//                                echo $arr;
-                                    print_r($result);
-//                                while($arr = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                                    while($arr = $result->fetch_assoc()){?>
-                                    <div class="row">
+                        <?php if ($query = mysqli_query($conn, "SELECT v_reg FROM drivers WHERE v_usercode ='$driverusercode' ")){ ?>
+                            <div class="row">
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Number Plate</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <?php echo $arr["id"] ;?>
+                                            <?php echo $conn?>
                                         </div>
                                     </div>
-                                <?php }
-                                }?>
+                                <?php }?>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
 

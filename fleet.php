@@ -27,7 +27,7 @@ $sql = "SELECT * FROM vehicles";
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" ></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" ></script>
 
@@ -43,11 +43,11 @@ $sql = "SELECT * FROM vehicles";
                         <div class="card-body">
                             <?php if($results = mysqli_query($conn, $sql)) {?>
 
-                            <?php foreach ($results as $Vehicle){?>
+                            <?php foreach ($results as $vehicle){?>
                             <div class="row">
                                 <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                                     <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                        <img src="documents/<?php echo $Vehicle['v_image']?>" class="w-100" height="150%"/>
+                                        <img src="documents/<?php echo $vehicle['v_image']?>" class="w-100"/>
                                         <a href="#!">
                                             <div class="hover-overlay">
                                                 <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
@@ -56,7 +56,7 @@ $sql = "SELECT * FROM vehicles";
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <h5><?php echo $Vehicle['v_reg'] ?></h5>
+                                    <h5><?php echo $vehicle['v_reg'] ?></h5>
                                     <div class="d-flex flex-row">
                                         <div class="text-danger mb-1 me-2">
                                             <i class="fa fa-star"></i>
@@ -64,7 +64,7 @@ $sql = "SELECT * FROM vehicles";
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                        <span><?php echo $Vehicle['v_capacity']?> seater</span>
+                                        <span><?php echo $vehicle['v_capacity']?> seater</span>
                                     </div>
                                     <div class="mt-1 mb-0 text-muted small">
                                         <span> 4 wheel drive</span>
@@ -81,24 +81,22 @@ $sql = "SELECT * FROM vehicles";
                                         <span>Jungle Green Color<br /></span>
                                     </div>
                                     <p class="text-truncate mb-4 mb-md-0">
-                                        There are many variations of passages of Lorem Ipsum available, but the
-                                        majority have suffered alteration in some form, by injected humour, or
-                                        randomised words which don't look even slightly believable.
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                                     <div class="d-flex flex-row align-items-center mb-1">
-                                        <h4 class="mb-1 me-1">$<?php echo $Vehicle['v_charges']?></h4>
-<!--                                        <h4 class="mb-1 me-1">$13.99</h4>-->
-                                        <span class="text-danger"><s>$20.99</s></span>
+                                        <h4 class="mb-1 me-1">$<?php echo $vehicle['v_charges']?></h4>
+                                        <span class="text-danger"><s>$20.99</s></span>/ per day
                                     </div>
-                                    <h6 class="text-success"><?php echo $Vehicle['v_status']?></h6>
+                                    <h6 class="text-success"><?php echo $vehicle['v_status']?></h6>
                                     <div class="d-flex flex-column mt-4">
-<!--                                        <button class="btn btn-primary btn-sm" type="button">Details</button>-->
-                                        <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                                        <a href="?vreg=<?php echo $vehicle['v_reg'] ?>&vusercode=<?php echo $vehicle['v_usercode'] ?>&vcharges=<?php echo $vehicle['v_charges'] ?>" data-toggle="modal" data-target="#staticBackdrop">
+                                        <button type="button" class="btn btn-outline-primary btn-sm mt-2">
                                             Book Vehicle
                                         </button>
+                                        </a>
                                     </div>
+
                                 </div>
                             </div>
                             <?php }
@@ -115,6 +113,65 @@ $sql = "SELECT * FROM vehicles";
             </div>
         </div>
     </section>
+
+    <div class="wrapper">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Book A vehicle </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="background-color: #8fc4b7">
+                        <h5> Payment Form </h5>
+
+                        <form action="paymentHandler.php" method="POST">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" name="fname" class="form-control" placeholder="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="lname" class="form-control" placeholder="Last name" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="email" name="email" class="form-control" placeholder="email" required>
+                                </div>
+                                <div class="col">
+                                    <input type="number" name="phone" class="form-control" minlength="10" maxlength="10" placeholder="Your phone number">
+                                    <span class="text-danger">To use during payments!</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="date" class="form-control" placeholder="Date" required>
+                                </div>
+                                <div class="col">
+                                    <input type="number" name="daysbooked" class="form-control" placeholder="Number of days" required>
+                                </div>
+                            </div>
+                            <input name="v_reg" class="form-control" value="<?php echo $vehicle['v_reg'] ;?>" hidden>
+                            <input name="daysbooked" class="form-control" value="<?php echo $vehicle['v_usercode'] ;?>" hidden>
+                            <input name="daysbooked" class="form-control" value="<?php echo $vehicle['v_charges'] ;?>" hidden>
+
+                            <br>
+                        </form>
+                    </div>
+                    <div class="modal-footer" style="background-color: #8fc4b7;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!--call footer-->
     <?php include 'footer.php'; ?>
