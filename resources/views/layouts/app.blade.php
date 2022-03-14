@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"></head>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
+</head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -77,6 +79,27 @@
             @yield('content')
         </main>
     </div>
+
+{{--    <div class="pop-container">--}}
+        <div class="popup" id="popup">
+            <img src="tick.png">
+            <h2>Thank You</h2>
+            <p> Your details have been submitted successfully. Thanks!</p>
+
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+{{--    </div>--}}
+    <script type="text/javascript">
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script>
 
 </body>
 </html>

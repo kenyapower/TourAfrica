@@ -15,6 +15,7 @@
                                     <p class="text-white-50 mb-5">Enter email & password</p>
 
                                     <form action="{{ route('login') }}" method="POST">
+                                        @csrf
                                         <div class="form-outline form-white mb-4">
                                             <input type="email" id="typeEmailX" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" />
                                             <label class="form-label" for="typeEmailX">Email</label>

@@ -14,6 +14,7 @@
                                     <h2 class="text-uppercase text-center mb-5">Request an account</h2>
 
                                     <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
 
                                         <div class="form-outline form-white mb-4">
                                             <input type="text" id="form3Example1cg" name="fname" class="form-control form-control-lg" required/>
@@ -21,12 +22,17 @@
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="text" id="form3Example1cg" name="sname" class="form-control form-control-lg" required/>
+                                            <input type="text" id="form3Example1cg" name="sname" class="form-control form-control-lg" />
                                             <label class="form-label" for="form3Example1cg">Your Second Name</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="number" id="form3Example4cg" name="phone" class="form-control form-control-lg" required />
+                                            <input type="text" id="form3Example1cg" name="lname" class="form-control form-control-lg" required/>
+                                            <label class="form-label" for="form3Example1cg">Your Last Name</label>
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="number" id="form3Example4cg" name="phone" maxlength="10" minlength="10" class="form-control form-control-lg" required />
                                             <label class="form-label" for="form3Example4cg">Phone Number</label>
                                         </div>
 
@@ -53,7 +59,24 @@
                                             <label class="form-label" for="form3Example3cg">Your password</label>
                                         </div>
 
-{{--                                        <h2 class="text-uppercase text-center mb-5">Provide Vehicle info</h2>--}}
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label" for="form3Example3cg">Upload Your Passport Photo</label>
+
+                                            <input  id="formFileLg" name="passport-photo" type="file" accept="image/jpeg,png" class="form-control form-control-lg" required />
+                                            <div class="small text-muted mt-2">Upload your image. Max file size 25 MB</div>
+
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label" for="form3Example3cg">Upload valid Driving License</label>
+
+                                            <input  id="formFileLg" name="dl" type="file" accept="image/jpeg,png" class="form-control form-control-lg" required />
+                                            <div class="small text-muted mt-2">Upload copy of Driving License. Max file size 25 MB</div>
+
+                                        </div>
+
+
+                                        {{--                                        <h2 class="text-uppercase text-center mb-5">Provide Vehicle info</h2>--}}
 
 {{--                                        <div class="form-outline form-white mb-4">--}}
 {{--                                            <input type="text" id="form3Example3cg" name="v_reg" class="form-control form-control-lg" required />--}}
@@ -96,13 +119,6 @@
 
 {{--                                        </div>--}}
 
-{{--                                        <div class="form-outline form-white mb-4">--}}
-{{--                                            <label class="form-label" for="form3Example3cg">Upload valid Driving License</label>--}}
-
-{{--                                            <input  id="formFileLg" name="driver_license" type="file" accept="image/jpeg,png" class="form-control form-control-lg" required />--}}
-{{--                                            <div class="small text-muted mt-2">Upload copy of Driving License. Max file size 25 MB</div>--}}
-
-{{--                                        </div>--}}
 
 {{--                                        <div class="form-outline form-white mb-4">--}}
 {{--                                            <label class="form-label" for="form3Example3cg">Upload Vehicle Image</label>--}}
@@ -112,7 +128,7 @@
 
 {{--                                        </div>--}}
 
-                                        <input type="text" name="position" value="driver" hidden>
+{{--                                        <input type="text" name="position" value="driver" hidden>--}}
 
                                         <div class="form-check d-flex justify-content-center mb-5">
                                             <p><input class="form-check-input me-2" type="checkbox" name="tos"  id="form2Example3cg" required/> </p>
@@ -123,7 +139,9 @@
 
 
                                         <div class="d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Request</button>
+                                            <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" onclick="openPopup()">
+                                                Request Account
+                                            </button>
                                         </div>
 
                                         <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login" class="fw-bold text-body"><u>Login here</u></a></p>
@@ -139,5 +157,6 @@
         </section>
 
     </div>
+
 
 @endsection
