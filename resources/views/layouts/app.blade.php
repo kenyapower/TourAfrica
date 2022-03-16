@@ -21,7 +21,10 @@
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <div id="app">
+        @include('sweetalert::alert')
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -81,25 +84,25 @@
     </div>
 
 {{--    <div class="pop-container">--}}
-        <div class="popup" id="popup">
-            <img src="tick.png">
-            <h2>Thank You</h2>
-            <p> Your details have been submitted successfully. Thanks!</p>
+{{--        <div class="popup" id="popup">--}}
+{{--            <img src="tick.png">--}}
+{{--            <h2>Thank You</h2>--}}
+{{--            <p> Your details have been submitted successfully. Thanks!</p>--}}
 
-            <button type="button" onclick="closePopup()">OK</button>
-        </div>
+{{--            <button type="button" onclick="closePopup()">OK</button>--}}
+{{--        </div>--}}
 {{--    </div>--}}
-    <script type="text/javascript">
-        let popup = document.getElementById("popup");
+{{--    <script type="text/javascript">--}}
+{{--        let popup = document.getElementById("popup");--}}
 
-        function openPopup() {
-            popup.classList.add("open-popup");
-        }
+{{--        function openPopup() {--}}
+{{--            popup.classList.add("open-popup");--}}
+{{--        }--}}
 
-        function closePopup() {
-            popup.classList.remove("open-popup");
-        }
-    </script>
+{{--        function closePopup() {--}}
+{{--            popup.classList.remove("open-popup");--}}
+{{--        }--}}
+{{--    </script>--}}
 
 </body>
 </html>

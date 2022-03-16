@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 
@@ -19,6 +20,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::post('/register', [RegisterController::class, 'create']);
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
