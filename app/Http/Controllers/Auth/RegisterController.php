@@ -152,7 +152,6 @@ class RegisterController extends Controller
         Alert::error('Check Phone Number', 'should start with 07 / 01!');
 
         return back();
-
 //        return back()->with('error', 'Phone Number should start with 07 / 01!');
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Driver;
 use Illuminate\Support\Facades\Auth;
@@ -52,5 +54,27 @@ class DriverController extends Controller
             return redirect()->route('login');
 
         }
+    }
+
+    public function deleteAcc(Request $request, $usercode)
+    {
+        try {
+            //delete record from drivers tbl
+            Driver::where('drivercode', $usercode)->delete();
+//            DB::table('drivers')->delete()->where('drivercode', $usercode);
+
+            //delete record from users tbl
+            User::where('usercode', $usercode)->delete();
+//            DB::table('users')->delete()->where('usercode', $usercode);
+
+            $request->session()->flush();
+
+            return redirect()->route('login');
+
+        } catch (Exception $e) {
+
+            return $e->getMessage();
+        }
+
     }
 }

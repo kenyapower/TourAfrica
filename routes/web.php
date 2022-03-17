@@ -31,12 +31,14 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 
 //siteController routes starts
-    Route::get('/dash_index', [SiteController::class, 'dashindex'])->name('site.dashindex');
+    Route::get('/dash_index',   [SiteController::class, 'dashindex'])->name('site.dashindex')->middleware('auth');
+    Route::get('/drivers',      [SiteController::class, 'allDrivers'])->name('site.drivers')->middleware('auth');
 //siteController routes end
 
 //DriverController Routes Starts
-    Route::get('/myProfile/{usercode}',    [DriverController::class, 'myProfile'])->name('site.myProfile')->middleware('auth');
-    Route::post('/myProfile/updatePass/{usercode}',   [DriverController::class,'updatePass'])->name('site.update')->middleware('auth');
+    Route::get('/myProfile/{usercode}',                 [DriverController::class, 'myProfile'])->name('site.myProfile')->middleware('auth');
+    Route::post('/myProfile/updatePass/{usercode}',     [DriverController::class,'updatePass'])->name('site.update')->middleware('auth');
+    Route::post('/myProfile/deleteAcc/{usercode}',      [DriverController::class,'deleteAcc'])->name('site.deleteAcc')->middleware('auth');
 //DriverController Routes ends
 });
 

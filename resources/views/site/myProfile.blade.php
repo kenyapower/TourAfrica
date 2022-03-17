@@ -44,6 +44,11 @@
             background-color: #fff;
             border-bottom: 1px solid #e5e9f2;
         }
+
+        .delete {
+            margin:auto;
+            display:block;
+        }
     </style>
 
 </head>
@@ -85,11 +90,12 @@
                     <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#" role = "tab" >
                         Your data
                     </a >
-                    <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#" role = "tab" >
-                        Delete account
+                    <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#delete" role = "tab" onclick="togglePopup()" >
+                            Delete account
                     </a >
-                </div >
-            </div >
+
+                </div>
+            </div>
         </div >
 
         <div class="col-md-7 col-xl-8" >
@@ -110,8 +116,6 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" >
                                         <a class="dropdown-item" href = "#" > Update Profile</a >
-{{--                                        <a class="dropdown-item" href = "#" > Another action </a >--}}
-{{--                                        <a class="dropdown-item" href = "#" > Something else here </a >--}}
                                     </div >
                                 </div >
                             </div >
@@ -161,8 +165,6 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" >
                                         <a class="dropdown-item" href = "#" > Update Details</a >
-{{--                                        <a class="dropdown-item" href = "#" > Another action </a >--}}
-{{--                                        <a class="dropdown-item" href = "#" > Something else here </a >--}}
                                     </div >
                                 </div >
                             </div >
@@ -193,28 +195,6 @@
                                     <label for="inputAddress" > Phone</label >
                                     <input type = "number" class="form-control" id = "inputAddress" placeholder = "Phone" value="{{ old('phoneNumber') ?? $myInfo->phoneNumber}}">
                                 </div >
-{{--                                <div class="form-group" >--}}
-{{--                                    <label for="inputAddress2" > Address 2 </label >--}}
-{{--                                    <input type = "text" class="form-control" id = "inputAddress2" placeholder = "Apartment, studio, or floor" >--}}
-{{--                                </div >--}}
-{{--                                <div class="form-row" >--}}
-{{--                                    <div class="form-group col-md-6" >--}}
-{{--                                        <label for="inputCity" > City</label >--}}
-{{--                                        <input type = "text" class="form-control" id = "inputCity" >--}}
-{{--                                    </div >--}}
-{{--                                    <div class="form-group col-md-4" >--}}
-{{--                                        <label for="inputState" > State</label >--}}
-{{--                                        <select id = "inputState" class="form-control" >--}}
-{{--                                            <option selected = "" > Choose...</option >--}}
-{{--                                            <option >...</option >--}}
-{{--                                        </select >--}}
-{{--                                    </div >--}}
-{{--                                    <div class="form-group col-md-2" >--}}
-{{--                                        <label for="inputZip" > Zip</label >--}}
-{{--                                        <input type = "text" class="form-control" id = "inputZip" >--}}
-{{--                                    </div >--}}
-{{--                                </div >--}}
-{{--                                <button type = "submit" class="btn btn-primary" > Save changes </button >--}}
                             </form >
 
                         </div >
@@ -250,11 +230,33 @@
                         </div >
                     </div >
                 </div >
+
+                <div class="tab-pane fade" id = "delete" role = "tabpanel" >
+                    <div class="card" >
+                        <div class="card-body">
+
+                            <h5 class="card-title" style="text-align: center" > Are You Sure ?</h5 >
+
+                            <form action="deleteAcc/{{$myInfo->usercode}}" method="POST">
+                                {{ csrf_field() }}
+                                <button type = "submit" class="btn btn-danger delete"> Delete My Account </button >
+
+                            </form >
+
+                        </div >
+                    </div >
+                </div >
             </div >
         </div >
     </div >
 
 </div>
+<script type="text/javascript">
 
+    // Function to show and hide the popup
+    function togglePopup() {
+        $(".content").toggle();
+    }
+</script>
 </body>
 </html>
