@@ -3,7 +3,7 @@
 @section('mydash')
 
     <!-- !ADMIN PAGE CONTENT! -->
-    @if($user = Auth::user()->userposition == 'superadministrator')
+    @if($user = Auth::user()->userposition == 'Superadministrator')
     <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
         <!-- Header -->
@@ -228,7 +228,7 @@
         <!-- End page content -->
     </div>
 
-    @elseif($user = Auth::user()->userposition == 'driver')
+    @elseif($user = Auth::user()->userposition == 'Driver')
 
     <!-- !DRIVER PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:300px;margin-top:43px;">
@@ -251,32 +251,32 @@
             </div>
             <div class="w3-quarter">
                 <div class="w3-container w3-blue w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                    <div class="w3-left"><i class="fa fa-car w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <h3>99</h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4>Views</h4>
+                    <h4>My Fleet</h4>
                 </div>
             </div>
             <div class="w3-quarter">
                 <div class="w3-container w3-teal w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                    <div class="w3-left"><i class="fa fa-briefcase w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <h3>23</h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4>Shares</h4>
+                    <h4>My jobs</h4>
                 </div>
             </div>
             <div class="w3-quarter">
                 <div class="w3-container w3-orange w3-text-white w3-padding-16">
-                    <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                    <div class="w3-left"><i class="fa fa-user w3-xxxlarge"></i></div>
                     <div class="w3-right">
                         <h3>50</h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4>Users</h4>
+                    <h4><a href="myProfile/{{ Auth::user()->usercode }}">My Profile</a></h4>
                 </div>
             </div>
         </div>

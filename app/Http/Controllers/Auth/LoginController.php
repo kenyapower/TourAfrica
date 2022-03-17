@@ -43,7 +43,6 @@ class LoginController extends Controller
             else{
                 return redirect('/verifyPhone');
             }
-
         }
 
         if($user->hasRole('superadministrator')){

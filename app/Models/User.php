@@ -41,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+     protected $table = 'users';
+
+
+//    public function driver()
+//    {
+//        return $this->belongsTo('App\driver','drivercode');
+//    }
+
+    public function drivers(){
+        return $this->belongsToMany(Driver::class, 'drivers', 'drivercode')->withTimestamps();
+    }
 }

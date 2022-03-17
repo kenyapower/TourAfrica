@@ -90,17 +90,9 @@ class RegisterController extends Controller
         $tos        = $request['tos'];
         $uposition  = "Driver";
         $ulevel     = "Primary";
-        $uname       = $request['fname'];
-
-        //saving driver profiles
-        $dimage = $drivercode.'.'.$request['driverimage']->getClientOriginalName();
-        $destinationPath = public_path('/uploads/profiles/');
-        $request['driverimage']->move($destinationPath, $dimage);
-
-        //saving driver license
-        $dl     = $drivercode.'.'.$request['dl']->getClientOriginalName();
-        $request['dl']->move(public_path('/uploads/Licenses/'), $dl);
-
+        $uname      = $request['fname'];
+        $dimage     = $drivercode.'.'.$request['driverimage']->getClientOriginalName();
+        $dl         = $drivercode.'.'.$request['dl']->getClientOriginalName();
 
         if ($num[0] === '0') {
             $number = substr($num, 1);
@@ -126,9 +118,8 @@ class RegisterController extends Controller
                     'updated_at'    => Carbon::now()
                 ]);
 
-//            $user = User::create([
                 DB::table('users')->insert([
-                    'usercode'      => $drivercode,
+                    'usercode'      => $name1.$drivercode,
                     'name'          => $uname,
                     'email'         => $request['email'],
                     'password'      => Hash::make($request['password']),
@@ -138,6 +129,14 @@ class RegisterController extends Controller
                     'updated_at'    => Carbon::now()
                 ]);
 
+                //move images only after inserting
+                //move driver profile
+                $destinationPath = public_path('/uploads/profiles/');
+                $request['driverimage']->move($destinationPath, $dimage);
+                //move driver license
+                $request['dl']->move(public_path('/uploads/Licenses/'), $dl);
+
+                //after successful Insertion
                 Alert::success('Success ', 'Congratulations Proceed to Login');
 
                 return redirect('/login');

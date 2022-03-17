@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DriverController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 
@@ -19,13 +21,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
 Route::post('/register', [RegisterController::class, 'create']);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'prevent-back-history'],function(){
+    Auth::routes();
+//    Route::get('/home', 'HomeController@index');
+    //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//site routes starts
-//Route::group(['middleware' => 'preventBackHistory'], function() {
+
+//siteController routes starts
     Route::get('/dash_index', [SiteController::class, 'dashindex'])->name('site.dashindex');
-//});
-//site routes end
+//siteController routes end
+
+//DriverController Routes Starts
+    Route::get('/myProfile/{usercode}',    [DriverController::class, 'myProfile'])->name('site.myProfile')->middleware('auth');
+    Route::post('/myProfile/updatePass/{usercode}',   [DriverController::class,'updatePass'])->name('site.update')->middleware('auth');
+//DriverController Routes ends
+});
+
+

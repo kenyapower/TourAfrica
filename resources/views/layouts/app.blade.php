@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'TourAfrica') }}</title>
 
+    <link href="img/logo.jpeg" rel="icon">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
