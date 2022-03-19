@@ -110,10 +110,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
-    <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>Contacts page - Bootdey.com</title>
+    <title>Drivers | TourAfrica</title>
 
+    <!-- Favicons -->
+    <link href="img/logo.jpeg" rel="icon">
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -191,111 +191,119 @@
                                     <img src="/img/avatar.png" alt="">
                                 @else
                                     <img src="/uploads/profiles/{{$driver->driverimage}} " alt="">
+                                    &nbsp;&nbsp;
                                 @endempty
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
+                                    <h5 class="mt-0 mb-2 text-dark">{{ucfirst($driver->fname)}} {{ substr($driver->lname, 0, 1)}}</h5>
                                     <ul class="list-unstyled text-smoke text-smoke">
                                         <li class="d-flex">
-                                            <i class="mdi mdi-map mr-1"></i>
-                                            <span>Nulla vel metus 15/178</span>
+                                            <i class="mdi mdi-level mr-1"></i>
+                                            <span>
+                                                {{$driver->driverlevel}}
+                                            </span>
                                         </li>
-                                        <li class="d-flex">
-                                            <i class="mdi mdi-email mr-1"></i>
-                                            <span>exmaple@email.com</span>
-                                        </li>
+{{--                                        <li class="d-flex">--}}
+{{--                                            <i class="mdi mdi-email mr-1"></i>--}}
+{{--                                            <span>--}}
+{{--                                                exmaple@email.com--}}
+{{--                                            </span>--}}
+{{--                                        </li>--}}
                                         <li class="d-flex">
                                             <i class="mdi mdi-phone mr-1"></i>
-                                            <span>(123) 888 777 632</span>
+                                            <span>
+                                                +{{$driver->phoneNumber}}
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>
                             </a>
                         </div>
+                        <!-- Contact Modal -->
+                        <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header justify-content-end border-bottom-0">
+                                        <button type="button" class="btn-edit-icon" data-dismiss="modal" aria-label="Close">
+                                            <i class="mdi mdi-pencil"></i>
+                                        </button>
+
+                                        <div class="dropdown">
+                                            <button class="btn-dots-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-dots-vertical"></i>
+                                            </button>
+
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                                <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                                <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
+                                            <i class="mdi mdi-close"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body pt-0">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-6">
+                                                <div class="profile-content-left px-4">
+                                                    <div class="card text-center px-0 border-0">
+                                                        <div class="card-img mx-auto">
+                                                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user image" />
+                                                        </div>
+
+                                                        <div class="card-body">
+                                                            <h4 class="py-2"> {{$driver->fname}} {{$driver->sname}} {{$driver->lname}}</h4>
+                                                            <p>Albrecht.straub@gmail.com</p>
+                                                            <a class="btn btn-primary btn-pill btn-lg my-4" href="javascript:void(0)">Follow</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="text-center pb-4">
+                                                            <h6 class="pb-2">1503</h6>
+                                                            <p>Friends</p>
+                                                        </div>
+
+                                                        <div class="text-center pb-4">
+                                                            <h6 class="pb-2">2905</h6>
+                                                            <p>Followers</p>
+                                                        </div>
+
+                                                        <div class="text-center pb-4">
+                                                            <h6 class="pb-2">1200</h6>
+                                                            <p>Following</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="contact-info px-4">
+                                                    <h4 class="mb-1">Contact Details</h4>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Email address</p>
+                                                    <p>Albrecht.straub@gmail.com</p>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Phone Number</p>
+                                                    <p>+99 9539 2641 31</p>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Birthday</p>
+                                                    <p>Nov 15, 1990</p>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Event</p>
+                                                    <p>Lorem, ipsum dolor</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     @endforeach
                 </div>
             </div>
         </div>
 
-        <!-- Contact Modal -->
-        <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header justify-content-end border-bottom-0">
-                        <button type="button" class="btn-edit-icon" data-dismiss="modal" aria-label="Close">
-                            <i class="mdi mdi-pencil"></i>
-                        </button>
-
-                        <div class="dropdown">
-                            <button class="btn-dots-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </button>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                                <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
-                            <i class="mdi mdi-close"></i>
-                        </button>
-                    </div>
-
-                    <div class="modal-body pt-0">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <div class="profile-content-left px-4">
-                                    <div class="card text-center px-0 border-0">
-                                        <div class="card-img mx-auto">
-                                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user image" />
-                                        </div>
-
-                                        <div class="card-body">
-                                            <h4 class="py-2">Albrecht Straub</h4>
-                                            <p>Albrecht.straub@gmail.com</p>
-                                            <a class="btn btn-primary btn-pill btn-lg my-4" href="javascript:void(0)">Follow</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between">
-                                        <div class="text-center pb-4">
-                                            <h6 class="pb-2">1503</h6>
-                                            <p>Friends</p>
-                                        </div>
-
-                                        <div class="text-center pb-4">
-                                            <h6 class="pb-2">2905</h6>
-                                            <p>Followers</p>
-                                        </div>
-
-                                        <div class="text-center pb-4">
-                                            <h6 class="pb-2">1200</h6>
-                                            <p>Following</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="contact-info px-4">
-                                    <h4 class="mb-1">Contact Details</h4>
-                                    <p class="text-dark font-weight-medium pt-4 mb-2">Email address</p>
-                                    <p>Albrecht.straub@gmail.com</p>
-                                    <p class="text-dark font-weight-medium pt-4 mb-2">Phone Number</p>
-                                    <p>+99 9539 2641 31</p>
-                                    <p class="text-dark font-weight-medium pt-4 mb-2">Birthday</p>
-                                    <p>Nov 15, 1990</p>
-                                    <p class="text-dark font-weight-medium pt-4 mb-2">Event</p>
-                                    <p>Lorem, ipsum dolor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Add Contact Button  -->
         <div class="modal fade" id="modal-add-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

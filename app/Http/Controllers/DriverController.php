@@ -61,11 +61,9 @@ class DriverController extends Controller
         try {
             //delete record from drivers tbl
             Driver::where('drivercode', $usercode)->delete();
-//            DB::table('drivers')->delete()->where('drivercode', $usercode);
 
             //delete record from users tbl
             User::where('usercode', $usercode)->delete();
-//            DB::table('users')->delete()->where('usercode', $usercode);
 
             $request->session()->flush();
 

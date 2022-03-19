@@ -13,7 +13,9 @@ class SiteController extends Controller
     public function dashindex()
     {
 //        $user = Auth::user()->id;
-        return view('site.dash_index');
+        $drivers =  DB::table('drivers')->count();
+//        $cars    =  DB::table('vehicles')->count();
+        return view('site.dash_index', compact('drivers',));
     }
 
     public function allDrivers()
