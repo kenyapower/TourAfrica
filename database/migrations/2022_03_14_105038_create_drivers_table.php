@@ -23,6 +23,7 @@ class CreateDriversTable extends Migration
             $table->string('driverimage')->nullable();
             $table->string('driverlicense')->nullable();
             $table->string('driverlevel')->nullable();
+            $table->string('registeredby')->nullable();
             $table->string('tos')->nullable();
             $table->timestamps();
         });

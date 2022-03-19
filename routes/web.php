@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DriverController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,12 +21,12 @@ use App\Http\Controllers\SiteController;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 
 
 Route::post('/register', [RegisterController::class, 'create']);
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
-    Auth::routes();
 //    Route::get('/home', 'HomeController@index');
     //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -37,9 +38,16 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 //DriverController Routes Starts
     Route::get('/myProfile/{usercode}',                 [DriverController::class, 'myProfile'])->name('site.myProfile')->middleware('auth');
+    Route::post('/myProfile/addAss',                    [DriverController::class, 'addAss'])->name('site.addAss')->middleware('auth');
+    Route::post('/myProfile/addVehicle',                [DriverController::class, 'addVehicle'])->name('site.addVehicle')->middleware('auth');
     Route::post('/myProfile/updatePass/{usercode}',     [DriverController::class,'updatePass'])->name('site.update')->middleware('auth');
     Route::post('/myProfile/deleteAcc/{usercode}',      [DriverController::class,'deleteAcc'])->name('site.deleteAcc')->middleware('auth');
 //DriverController Routes ends
+
 });
+
+//clientcontroller routes start
+    Route::get('fleetlisting',          [ClientController::class, 'ourFleet'])->name('client.ourFleet');
+//clientcontroller routes end
 
 

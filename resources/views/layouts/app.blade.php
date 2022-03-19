@@ -85,26 +85,5 @@
         </main>
     </div>
 
-{{--    <div class="pop-container">--}}
-{{--        <div class="popup" id="popup">--}}
-{{--            <img src="tick.png">--}}
-{{--            <h2>Thank You</h2>--}}
-{{--            <p> Your details have been submitted successfully. Thanks!</p>--}}
-
-{{--            <button type="button" onclick="closePopup()">OK</button>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <script type="text/javascript">--}}
-{{--        let popup = document.getElementById("popup");--}}
-
-{{--        function openPopup() {--}}
-{{--            popup.classList.add("open-popup");--}}
-{{--        }--}}
-
-{{--        function closePopup() {--}}
-{{--            popup.classList.remove("open-popup");--}}
-{{--        }--}}
-{{--    </script>--}}
-
 </body>
 </html>

@@ -9,17 +9,10 @@ class Driver extends Model
 {
     use HasFactory;
 
-    Protected $fillable = ['fname', 'sname', 'lname', 'tos', 'driverimage', 'driverlicense', 'phoneNumber','drivercode'];
+    Protected $fillable = ['fname', 'sname', 'lname', 'tos', 'driverimage', 'driverlicense', 'phoneNumber','drivercode', 'registeredby'];
 
     protected $table = 'drivers';
 
-//    public function user() {
-//        return $this->belongsToMany('App\user');}
-
-//    public function user()
-//    {
-//        return $this->belongsTo('App\user');
-//    }
 
     public function users(){
         return $this->belongsToMany(User::class, 'drivers', 'drivercode')->withTimestamps();

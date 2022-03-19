@@ -75,11 +75,11 @@
                     <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#password" role = "tab" >
                         Password
                     </a >
-                    <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#" role = "tab" >
-                        Privacy and safety
+                    <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#assistant" role = "tab" >
+                        + Add Assistant Driver
                     </a >
-                    <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#" role = "tab" >
-                        Email notifications
+                    <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#new-vehicle" role = "tab" >
+                        + Add Vehicle
                     </a >
                     <a class="list-group-item list-group-item-action" data-toggle = "list" href = "#" role = "tab" >
                         Web notifications
@@ -100,6 +100,8 @@
 
         <div class="col-md-7 col-xl-8" >
             <div class="tab-content" >
+
+                {{--my account panel--}}
                 <div class="tab-pane fade show active" id = "account" role = "tabpanel" >
 
                     <div class="card" >
@@ -201,6 +203,112 @@
                     </div >
 
                 </div >
+                {{--my account panel ends--}}
+
+                {{--add assistant driver panel--}}
+                <div class="tab-pane fade" id = "assistant" role = "tabpanel">
+
+                    <div class="card" >
+                        <div class="card-header" >
+                            <h5 class="card-title mb-0" >Assistant info </h5 >
+                        </div >
+                        <div class="card-body" >
+                            <form action="addAss" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+
+                                <div class="form-row" >
+                                    <div class="form-group col-md-6" >
+                                        <label for="inputFirstName" > First name </label >
+                                        <input type = "text" class="form-control" id = "inputFirstName" placeholder = "First name" name="fname" required>
+                                    </div >
+                                    <div class="form-group col-md-6" >
+                                        <label for="inputLastName" > Second name </label >
+                                        <input type = "text" class="form-control" id = "inputLastName" placeholder = "second name" name="sname" >
+                                    </div >
+                                </div >
+                                <div class="form-group" >
+                                    <label for="inputLastName" > Last name </label >
+                                    <input type = "text" class="form-control" id = "inputLastName" placeholder = "last name" name="lname" required>
+                                </div >
+
+                                <div class="form-group" >
+                                    <label for="inputEmail4" > Email</label >
+                                    <input type = "email" class="form-control" id = "inputEmail4" placeholder = "Email" name="email" required>
+                                </div >
+                                <div class="form-group" >
+                                    <label for="inputAddress" > Phone</label >
+                                    <input type = "number" class="form-control" id = "inputAddress" placeholder = "Phone" name="phone" required>
+                                </div >
+
+                                <div class="form-group" >
+                                    <label for="inputEmail4" > Their Profile Image: </label >
+                                    <input type = "file"  accept="image/jpeg,png" name="profile" required>
+                                    <div class="small text-muted mt-2">Upload your image. Max file size 25 MB</div>
+
+                                </div >
+                                <div class="form-group" >
+                                    <label for="inputEmail4" > Their Driving License: </label >
+                                    <input type = "file"  accept="image/jpeg,png" name="dl" required>
+                                    <div class="small text-muted mt-2">Upload your image. Max file size 25 MB</div>
+
+                                </div >
+
+                                <button type = "submit" class="btn btn-primary delete"> Add Assistant Driver </button >
+
+                            </form >
+                        </div >
+                    </div >
+
+                </div >
+                {{--assistant driver ends--}}
+
+                {{--add vehicle panel--}}
+                <div class="tab-pane fade" id = "new-vehicle" role = "tabpanel">
+
+                    <div class="card" >
+                        <div class="card-header" >
+                            <h5 class="card-title mb-0" >Vehicle info </h5 >
+                        </div >
+                        <div class="card-body" >
+                            <form action="addVehicle" method="POST" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                <div class="form-row" >
+                                    <div class="form-group col-md-6" >
+                                        <label for="inputFirstName" > Vehicle Registration Number </label >
+                                        <input type = "text" class="form-control" id = "inputFirstName" placeholder = "eg KVK 12GS" name="v_reg" required>
+                                    </div >
+                                    <div class="form-group col-md-6" >
+                                        <label for="inputLastName" > Vehicle Make </label >
+                                        <input type = "text" class="form-control" id = "inputLastName" placeholder = "vehicle make" name="v_make" required>
+                                    </div >
+                                </div >
+                                <div class="form-group" >
+                                    <label for="inputLastName" > Vehicle Capacity </label >
+                                    <input type = "number" class="form-control" id = "inputLastName" placeholder = "capacity" name="v_capacity" required>
+                                </div >
+
+                                <div class="form-group" >
+                                    <label for="inputEmail4" > Charges/ per day</label >
+                                    <input type = "number" class="form-control" id = "inputEmail4" placeholder = "charges" name="v_charges" required>
+                                </div >
+
+                                <div class="form-group" >
+                                    <label for="inputEmail4" > Vehicle Image: </label >
+                                    <input type = "file"  accept="image/jpeg,png" name="v_image" required>
+                                    <div class="small text-muted mt-2">Upload your image. Max file size 25 MB</div>
+
+                                </div >
+
+                                <button type = "submit" class="btn btn-primary delete"> Add Vehicle </button >
+
+                            </form >
+                        </div >
+                    </div >
+
+                </div >
+                {{--vehicle panel ends--}}
+
+                {{--password panel--}}
                 <div class="tab-pane fade" id = "password" role = "tabpanel" >
                     <div class="card" >
                         <div class="card-body" >
@@ -208,8 +316,6 @@
 
                             <form action="updatePass/{{$myInfo->usercode}}" method="POST">
                                 {{ csrf_field() }}
-{{--                                @method('PUT')--}}
-{{--                                <input type="hidden" name="_method" value="PUT">--}}
 
                                 <div class="form-group" >
                                     <label for="inputPasswordCurrent" > Current password </label >
@@ -231,6 +337,7 @@
                     </div >
                 </div >
 
+                {{--delete account panel--}}
                 <div class="tab-pane fade" id = "delete" role = "tabpanel" >
                     <div class="card" >
                         <div class="card-body">
@@ -246,6 +353,7 @@
                         </div >
                     </div >
                 </div >
+                {{--delete account panel ends--}}
             </div >
         </div >
     </div >
