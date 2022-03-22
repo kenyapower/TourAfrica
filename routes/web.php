@@ -38,6 +38,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 //DriverController Routes Starts
     Route::get('/myProfile/{usercode}',                 [DriverController::class, 'myProfile'])->name('site.myProfile')->middleware('auth');
+    Route::get('/myVehicles',                           [DriverController::class, 'myvehicles'])->name('site.myvehicles')->middleware('auth');
     Route::post('/myProfile/addAss',                    [DriverController::class, 'addAss'])->name('site.addAss')->middleware('auth');
     Route::post('/myProfile/addVehicle',                [DriverController::class, 'addVehicle'])->name('site.addVehicle')->middleware('auth');
     Route::post('/myProfile/updatePass/{usercode}',     [DriverController::class,'updatePass'])->name('site.update')->middleware('auth');

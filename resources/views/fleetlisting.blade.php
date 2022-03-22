@@ -8,17 +8,16 @@
     <title> Fleet | TourAfrica </title>
 
     <!-- Favicons -->
-    <link href="assets/img/logo.jpeg" rel="icon">
+    <link href="img/logo.jpeg" rel="icon">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/mystyle.css">
+{{--    <link rel="stylesheet" type="text/css" href="assets/mystyle.css">--}}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" ></script>
-
 </head>
 <body>
 
@@ -29,10 +28,14 @@
             <div class="col-md-12 col-xl-10">
                 <div class="card shadow-0 border rounded-3">
                     <div class="card-body">
-                        <div class="row">
+                        @if($vehicles->count() > 0)
+                        @foreach($vehicles as $vehicle)
+                            <br>
+                            <br>
+                            <div class="row">
                             <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                    <img src="documents/vehicle['v_image']?>" class="w-100"/>
+                                    <img src="uploads/vehicles/{{$vehicle->v_image}}" class="w-100"/>
                                     <a href="#!">
                                         <div class="hover-overlay">
                                             <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
@@ -41,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-6">
-                                <h5>vehicle['v_reg'] ?></h5>
+                                <h5>{{$vehicle->v_reg}}</h5>
                                 <div class="d-flex flex-row">
                                     <div class="text-danger mb-1 me-2">
                                         <i class="fa fa-star"></i>
@@ -49,7 +52,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <span>vehicle['v_capacity']?> seater</span>
+                                    <span>{{$vehicle->v_capacity}} seater</span>
                                 </div>
                                 <div class="mt-1 mb-0 text-muted small">
                                     <span> 4 wheel drive</span>
@@ -70,10 +73,14 @@
                             </div>
                             <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                                 <div class="d-flex flex-row align-items-center mb-1">
-                                    <h4 class="mb-1 me-1">$12</h4>
+                                    <h4 class="mb-1 me-1">${{$vehicle->v_charges}}</h4>
                                     <span class="text-danger"><s>$20.99</s></span>/ per day
                                 </div>
-                                <h6 class="text-success">vehicle['v_status']?></h6>
+                                @if($vehicle->v_status === 'Available')
+                                    <h6 class="text-success">{{$vehicle->v_status}}</h6>
+                                @elseif($vehicle->v_status === 'Booked')
+                                    <h6 class="text-danger">{{$vehicle->v_status}}</h6>
+                                @endif
                                 <div class="d-flex flex-column mt-4">
                                     <a href="#" data-toggle="modal" data-target="#staticBackdrop">
                                         <button type="button" class="btn btn-outline-primary btn-sm mt-2">
@@ -144,8 +151,26 @@
                             </div>
 
                         </div>
+                        @endforeach
+                        @else
+                        <p style="text-align: center">
+                            <span class="text-muted">
+                                <i class="fa fa-frown-o" style="font-size:48px;color: orangered"></i>
+                               <br>
+                                <b>Oops.. No vehicles Available.</b>
+                            </span>
+                        </p>
+                        @endif
                     </div>
                 </div>
+                <br>
+
+                <div class="text-center">
+                    <ul class="pagination">
+                        {!! $vehicles->links() !!}
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>

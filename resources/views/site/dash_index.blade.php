@@ -258,7 +258,7 @@
                         <h3>99</h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <h4>My Fleet</h4>
+                    <h4><a href="myVehicles">My Fleet</a></h4>
                 </div>
             </div>
             <div class="w3-quarter">

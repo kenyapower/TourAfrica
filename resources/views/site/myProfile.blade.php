@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>My Profile | TourAfrica</title>
+
+    <link href="img/logo.jpeg" rel="icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">

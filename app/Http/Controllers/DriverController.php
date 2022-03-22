@@ -29,9 +29,17 @@ class DriverController extends Controller
         return view('site.myProfile', compact('myInfo'));
     }
 
+    public function myvehicles()
+    {
+        $usercode   = Auth::user()->usercode;
+
+        $mycars = DB::table('vehicles')->where('v_owner',$usercode)->get();
+        return view('site.myVehicles', compact('mycars', 'usercode'));
+
+    }
+
     public function addAss(Request $request)
     {
-//        dd($request);
         $registeredby   = Auth::user()->usercode;
         $drivercode     = Str::random(5);
         $pass           = "password";
@@ -143,12 +151,11 @@ class DriverController extends Controller
             Alert::success('Success ', 'Bingo! You added Vehicle');
 
         } else {
-            Alert::info('Sorry', 'Vehicle exists in our system');
+            Alert::info('Sorry', 'Vehicle exists in our Records');
 
         }
 
         return back();
-
     }
 
     public function updatePass(Request $request, $usercode)
