@@ -26,10 +26,15 @@ Auth::routes();
 
 Route::post('/register', [RegisterController::class, 'create']);
 
+//clientcontroller routes start
+    Route::get('fleetlisting',          [ClientController::class, 'ourFleet'])->name('client.ourFleet');
+    Route::post('Book',                 [ClientController::class, 'Book'])->name('client.Book');
+//clientcontroller routes end
+
+
 Route::group(['middleware' => 'prevent-back-history'],function(){
 //    Route::get('/home', 'HomeController@index');
     //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 //siteController routes starts
     Route::get('/dash_index',   [SiteController::class, 'dashindex'])->name('site.dashindex')->middleware('auth');
@@ -46,9 +51,5 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 //DriverController Routes ends
 
 });
-
-//clientcontroller routes start
-    Route::get('fleetlisting',          [ClientController::class, 'ourFleet'])->name('client.ourFleet');
-//clientcontroller routes end
 
 

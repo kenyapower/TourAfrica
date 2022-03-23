@@ -17,11 +17,11 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->string('invoiceNumber')->unique()->nullable();
             $table->string('c_fname')->nullable();
-            $table->string('c_sname')->nullable();
             $table->string('c_lname')->nullable();
             $table->string('c_email')->nullable();
             $table->string('c_phone')->nullable();
             $table->string('c_location')->nullable();
+            $table->string('day_booked')->nullable();
             $table->string('destination')->nullable();
             $table->string('vehicle_reg')->nullable();
             $table->string('vehicle_make')->nullable();
@@ -29,7 +29,6 @@ class CreateInvoicesTable extends Migration
             $table->string('vehicle_driver')->nullable();
             $table->string('vehicle_rate')->nullable();
             $table->string('amountpaid')->nullable();
-            $table->string('daysbooked')->nullable();
             $table->string('invoicestatus')->nullable();
             $table->timestamps();
         });

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" ></script>
 </head>
 <body>
+@include('sweetalert::alert')
 
 <section id="cars">
     <div class="container py-5">
@@ -82,31 +82,59 @@
                                     <h6 class="text-danger">{{$vehicle->v_status}}</h6>
                                 @endif
                                 <div class="d-flex flex-column mt-4">
-                                    <a href="#" data-toggle="modal" data-target="#staticBackdrop">
-                                        <button type="button" class="btn btn-outline-primary btn-sm mt-2">
+                                    <a href="#" data-toggle="modal" data-target="#staticBackdrop{!! $vehicle->id !!}" data-id="{!! $vehicle->id !!}">
+                                        @if($vehicle->v_status === 'Booked')
+                                        <button type="button" class="btn btn-outline-primary btn-sm mt-2" disabled>
                                             Book Vehicle
                                         </button>
+                                        @else
+                                        <button type="button" class="btn btn-outline-primary btn-sm mt-2" >
+                                            Book Vehicle
+                                        </button>
+                                        @endif
                                     </a>
                                 </div>
 
                             </div>
                             <div class="wrapper">
                                 <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="staticBackdrop{!! $vehicle->id !!}"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="staticBackdropLabel">Book Vehicle </h5>
-                                                <!--                                                    <span class="text-info">   seater</span>-->
 
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body" style="background-color: #8fc4b7">
-                                                <h5> Payment Form </h5>
 
-                                                <form action="#" method="POST">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Reg No.s</th>
+                                                        <th>Make</th>
+                                                        <th>Capacity</th>
+                                                        <th>Rate</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>{!! $vehicle->v_reg !!}</td>
+                                                        <td>{!! $vehicle->v_make !!}</td>
+                                                        <td>{!! $vehicle->v_capacity !!} seater</td>
+                                                        <td>${!! $vehicle->v_charges !!}/=</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <h5> Payment Form </h5> <span class="text-danger">***booking effective immediately***</span>
+                                                <br>
+                                                <br>
+
+                                                <form action="Book" method="POST">
+                                                    {{ csrf_field() }}
                                                     <div class="row">
                                                         <div class="col">
                                                             <input type="text" name="fname" class="form-control" placeholder="First name">
@@ -128,22 +156,35 @@
                                                     <br>
                                                     <div class="row">
                                                         <div class="col">
-                                                            <input type="date" class="form-control" placeholder="Date" required>
+                                                            <input type="text" name="location" class="form-control" placeholder="pick up location" required>
                                                         </div>
                                                         <div class="col">
-                                                            <input type="number" name="daysbooked" class="form-control" placeholder="Number of days" required>
+                                                            <input type="text" name="destination" class="form-control" placeholder="destination" required>
                                                         </div>
                                                     </div>
-                                                    <input name="v_reg" class="form-control" value="vehicle['v_reg'] ;?>" hidden>
-                                                    <input name="daysbooked" class="form-control" value="vehicle['v_usercode'] ;?>" hidden>
-                                                    <input name="daysbooked" class="form-control" value="vehicle['v_charges'] ;?>" hidden>
-
                                                     <br>
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <input type="date" class="form-control" placeholder="Date" min="<?php echo date("Y-m-d"); ?>" max="<?php echo date("Y-m-d"); ?>" required>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="number" name="daysbooked" class="form-control" placeholder="Number of days" min="1" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <input name="v_reg" value="{!! $vehicle->v_reg !!}" hidden>
+                                                    <input name="v_make" value="{!! $vehicle->v_make !!}" hidden>
+                                                    <input name="v_capacity" value="{!! $vehicle->v_capacity !!}" hidden>
+                                                    <input name="v_driver" value="{!! $vehicle->v_driver !!}" hidden>
+                                                    <input name="v_charges" value="{!! $vehicle->v_charges !!}" hidden>
+                                                    <br>
+
+                                                        <button type="submit" class="btn btn-primary"  >Book Now</button>
                                                 </form>
                                             </div>
                                             <div class="modal-footer" style="background-color: #8fc4b7;">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary" data-dismiss="modal">Book Now</button>
                                             </div>
                                         </div>
                                     </div>

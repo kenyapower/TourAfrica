@@ -12,10 +12,10 @@ class Invoice extends Model
     protected $table = 'invoices';
 
     protected $fillable = [
-        'invoiceNumber', 'c_fname','c_sname', 'c_lname', 'c_email',
-        'c_phone', 'c_location', 'destination', 'vehicle_reg',
+        'invoiceNumber', 'c_fname', 'c_lname', 'c_email',
+        'c_phone', 'c_location', 'day_booked', 'destination', 'vehicle_reg',
         'vehicle_make', 'vehicle_capacity', 'vehicle_driver',
-        'vehicle_rate', 'amountpaid','daysbooked', 'invoicestatus'
+        'vehicle_rate', 'amountpaid', 'invoicestatus'
     ];
 
 }
