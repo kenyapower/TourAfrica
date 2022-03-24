@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
@@ -24,7 +25,12 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::post('/register', [RegisterController::class, 'create']);
+    Route::post('/register',    [RegisterController::class, 'create']);
+
+    //getting an invoice
+    Route::get('invoice',       [InvoiceController::class, 'clientinvoice'])->name('client.invoice');
+    Route::post('search',       [InvoiceController::class, 'search'])->name('search');
+
 
 //clientcontroller routes start
     Route::get('fleetlisting',          [ClientController::class, 'ourFleet'])->name('client.ourFleet');
@@ -39,6 +45,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 //siteController routes starts
     Route::get('/dash_index',   [SiteController::class, 'dashindex'])->name('site.dashindex')->middleware('auth');
     Route::get('/drivers',      [SiteController::class, 'allDrivers'])->name('site.drivers')->middleware('auth');
+    Route::get('/fleet',        [SiteController::class, 'fleet'])->name('site.fleet')->middleware('auth');
 //siteController routes end
 
 //DriverController Routes Starts

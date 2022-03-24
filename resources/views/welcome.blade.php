@@ -273,24 +273,24 @@
 <div id="operation" class="tabcontent">
     <div class="container">
         <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Get An Account</h4>
-                </div>
-                <div class="card-body">
-                    <p>Start earning.<br> Register as a driver today</p>
-                    <a href="account_request.php">
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign up for free </button>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <p>Access Your Account</p>
-                    <a href="login.php">
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign In </button>
-                    </a>
-                </div>
+{{--            <div class="card mb-4 box-shadow" style="background-color: greenyellow;">--}}
+{{--                <div class="card-header">--}}
+{{--                    <h4 class="my-0 font-weight-normal">Get An Account</h4>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <p>Start earning.<br> Register as a driver today</p>--}}
+{{--                    <a href="account_request.php">--}}
+{{--                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign up for free </button>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <p>Access Your Account</p>--}}
+{{--                    <a href="login.php">--}}
+{{--                        <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Sign In </button>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
             <div class="card mb-4 box-shadow" style="background-color: greenyellow;">
                 <div class="card-header">
@@ -310,7 +310,7 @@
                 </div>
                 <div class="card-body">
                     <p>Search for invoice</p>
-                    <a href="carinvoice.php">
+                    <a href="invoice">
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary"> Search Here </button>
                     </a>
                 </div>

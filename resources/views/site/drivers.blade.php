@@ -186,7 +186,7 @@
                     @foreach($drivers as $driver)
                     <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
                         <div class="card card-default p-4">
-                            <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
+                            <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact{!! $driver->id !!}" data-id="{!! $driver->id !!}">
                                 @if(is_null($driver->driverimage))
                                     <img src="/img/avatar.png" alt="">
                                 @else
@@ -209,7 +209,7 @@
 {{--                                            </span>--}}
 {{--                                        </li>--}}
                                         <li class="d-flex">
-                                            <i class="mdi mdi-phone mr-1"></i>
+{{--                                            <i class="mdi mdi-phone mr-1"></i>--}}
                                             <span>
                                                 +{{$driver->phoneNumber}}
                                             </span>
@@ -219,7 +219,7 @@
                             </a>
                         </div>
                         <!-- Contact Modal -->
-                        <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modal-contact{!! $driver->id !!}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header justify-content-end border-bottom-0">
@@ -235,7 +235,7 @@
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item" href="javascript:void(0)">Action</a>
                                                 <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                                                <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                                <a class="dropdown-item" href="javascript:void(0)">Delete Driver Account</a>
                                             </div>
                                         </div>
 
@@ -250,12 +250,12 @@
                                                 <div class="profile-content-left px-4">
                                                     <div class="card text-center px-0 border-0">
                                                         <div class="card-img mx-auto">
-                                                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user image" />
+                                                            <img class="rounded-circle" src="/uploads/profiles/{{$driver->driverimage}}" alt="user image" />
                                                         </div>
 
                                                         <div class="card-body">
                                                             <h4 class="py-2"> {{$driver->fname}} {{$driver->sname}} {{$driver->lname}}</h4>
-                                                            <p>Albrecht.straub@gmail.com</p>
+                                                            <p>{!! $driver->driverlevel !!}</p>
                                                             <a class="btn btn-primary btn-pill btn-lg my-4" href="javascript:void(0)">Follow</a>
                                                         </div>
                                                     </div>
@@ -263,7 +263,7 @@
                                                     <div class="d-flex justify-content-between">
                                                         <div class="text-center pb-4">
                                                             <h6 class="pb-2">1503</h6>
-                                                            <p>Friends</p>
+                                                            <p>Assistants</p>
                                                         </div>
 
                                                         <div class="text-center pb-4">
@@ -283,13 +283,15 @@
                                                 <div class="contact-info px-4">
                                                     <h4 class="mb-1">Contact Details</h4>
                                                     <p class="text-dark font-weight-medium pt-4 mb-2">Email address</p>
-                                                    <p>Albrecht.straub@gmail.com</p>
+                                                    <p>{!! $driver->email !!}</p>
                                                     <p class="text-dark font-weight-medium pt-4 mb-2">Phone Number</p>
-                                                    <p>+99 9539 2641 31</p>
-                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Birthday</p>
-                                                    <p>Nov 15, 1990</p>
-                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Event</p>
-                                                    <p>Lorem, ipsum dolor</p>
+                                                    <p>{!! $driver->phoneNumber !!}</p>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Usercode</p>
+                                                    <p>{!! $driver->usercode !!}</p>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Userstatus</p>
+                                                    <p>{!! $driver->userstatus !!}</p>
+                                                    <p class="text-dark font-weight-medium pt-4 mb-2">Created At</p>
+                                                    <p>{{Carbon\Carbon::parse($driver->created_at)->diffForHumans()  }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -301,7 +303,14 @@
                     </div>
                     @endforeach
                 </div>
+                <div class="text-center">
+                    <ul class="pagination">
+                        {!! $drivers->links() !!}
+                    </ul>
+                </div>
+
             </div>
+
         </div>
 
 

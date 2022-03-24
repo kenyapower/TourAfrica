@@ -20,7 +20,7 @@ class ClientController extends Controller
     {
 //        dd($request);
         //genarate code for invoice
-        $code = Str::random(5);
+        $invoicenum = Str::random(6);
 
         //fetch form data
         $fname      = $request['fname'];
@@ -38,7 +38,7 @@ class ClientController extends Controller
         $amount     = $day_booked * $charges;
         $status     = "Open & Valid";
 
-        $invoicenum = $fname.$code;
+//        $invoicenum = $fname.$code;
 
         //save data to invoice_tbl
         $query =  DB::table('invoices')->insert([
