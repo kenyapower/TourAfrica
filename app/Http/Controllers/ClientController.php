@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use GuzzleHttp\Client;
 
 class ClientController extends Controller
 {
@@ -42,59 +43,38 @@ class ClientController extends Controller
         $verifyMessage = (" Dear $fname, Thank You for Choosing us. Your Invoice Number is : $invoicenum, Use it on site to check validity ");
 
 
-        //message sending credentials
-//        $api_key = config('smssending.api_key');
-//        $senderId = config('smssending.sender_id');
-//        $username = config('smssending.username');
 
 
         if ($number[0] === '0') {
             $number = substr($number, 1);
             $phoneNumber = '+'.'254' . $number;
 
-//            dd($phoneNumber);
+            $headerArray = array(
+                'h_api_key' =>  '90a286404789e5fb761f0b7445c3907a24846eddd47060ff78f92bf8fa17f14b',
+                'Content-Type' => 'application/json'
+            );
+
+            $client = new Client([
+                'headers' => $headerArray
+            ]);
 
             $post = array(
                 'sender_name'   => 'UNICOMM',
-                'service_id'    => 0,
+                'service_id'    => '0',
                 'message'       => $verifyMessage,
                 'response_type' => 'json',
                 'mobile'        => $phoneNumber
 
             );
 
-//            {
-//                "mobile": "+254722158772",
-//            "response_type": "json",
-//            "sender_name": "MobiTech",
-//            "service_id": 0,
-//            "message": "This is a message.\n\nRegards\nMobiTech Technologies"
-//            }
-            $headerarray = array(
-                'h_api_key' =>  '761f0b7445c3907a24846eddd47060ff78f92bf8fa17f14b',
-                'Content-Type' => 'application/json'
-            );
+            $r = $client->request('POST', 'https://api.mobitechtechnologies.com/sms/sendsms', [
 
+                'body' => json_encode($post)
+            ]);
 
-            Log::info('request JSON [REGISTER] SMS' . json_encode($post, true));
+            $response = $r->getBody()->getContents();
 
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://api.mobitechtechnologies.com/sms/sendsms');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post));
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headerarray);
-//            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            // execute!
-            $response = curl_exec($ch);
-            if (curl_exec($ch) === false) {
-                Log::info('Curl Error SMS >>>>> ' . $response);
-            }
-            // close the connection, release resources used
-            curl_close($ch);
-            Log::info('API Response SMS >>>>> ' . $response);
+            Log::info('request JSON [Post]' . json_encode($response, true));
 
             $responseJson = json_decode($response, true);
             $status = ($responseJson[0])['status_code'];
