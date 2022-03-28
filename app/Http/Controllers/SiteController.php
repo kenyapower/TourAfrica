@@ -15,7 +15,9 @@ class SiteController extends Controller
 //        $user = Auth::user()->id;
         $drivers =  DB::table('drivers')->count();
         $cars    =  DB::table('vehicles')->count();
-        return view('site.dash_index', compact('drivers','cars'));
+        $invoices = DB::table('invoices')->count();
+
+        return view('site.dash_index', compact('drivers','cars','invoices'));
     }
 
     public function allDrivers()
@@ -41,4 +43,15 @@ class SiteController extends Controller
 //        dd($motors);
         return view('site.fleet', compact('motors'));
     }
+
+    public function invoices()
+    {
+        $invoices = DB::table('invoices')
+            ->join('vehicles','vehicles.v_reg', '=', 'invoices.vehicle_reg')
+            ->Distinct()
+            ->latest('invoices.created_at')
+            ->paginate(6);
+        return view('site.invoices', compact('invoices'));
+    }
+
 }

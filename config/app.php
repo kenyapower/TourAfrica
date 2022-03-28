@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Gathuku\Mpesa\MpesaServiceProvider::class,
 
 
         /*
@@ -235,8 +236,7 @@ return [
         /*package aliases*/
 
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
-
+        'Mpesa' => Gathuku\Mpesa\Facades\Mpesa::class,
     ],
 
 ];

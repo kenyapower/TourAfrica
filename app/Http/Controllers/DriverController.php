@@ -38,6 +38,16 @@ class DriverController extends Controller
 
     }
 
+    public function myinvoices()
+    {
+        $usercode   = Auth::user()->usercode;
+        $myinvoices = DB::table('invoices')
+            ->join('drivers', 'drivers.drivercode','=','invoices.vehicle_driver')
+            ->where('drivers.drivercode',$usercode)
+            ->paginate(2);
+        return view('site.myinvoices', compact('myinvoices'));
+    }
+
     public function addAss(Request $request)
     {
         $registeredby   = Auth::user()->usercode;
@@ -117,9 +127,7 @@ class DriverController extends Controller
 
     public function addVehicle(Request $request)
     {
-
         $owner            = Auth::user()->usercode;
-
         $vreg           = $request['v_reg'];
         $vmake          = $request['v_make'];
         $vcapacity      = $request['v_capacity'];
@@ -189,10 +197,8 @@ class DriverController extends Controller
         try {
             //delete all records from vehicles tbl
             Vehicle::where('owner', $usercode)->delete();
-
             //delete record from drivers tbl
             Driver::where('drivercode', $usercode)->delete();
-
             //delete record from users tbl
             User::where('usercode', $usercode)->delete();
 
